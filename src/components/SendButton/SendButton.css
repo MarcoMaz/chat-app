@@ -5,3 +5,7 @@
   color: white;
   padding: 0.5rem;
 }
+
+.Button.-disabled {
+  background-color: lightgray;
+}

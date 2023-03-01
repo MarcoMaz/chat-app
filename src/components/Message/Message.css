@@ -1,0 +1,13 @@
+.Message {
+  border-radius: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+}
+
+.Message.Message--sender {
+  background-color: gray;
+}
+
+.Message.Message--receiver {
+  background-color: green;
+}
