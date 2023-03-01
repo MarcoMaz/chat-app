@@ -1,11 +1,11 @@
-import Button from "../Button/Button"
+import Button from '../Button/Button';
 
 const Footer = () => {
-  return(
+  return (
     <footer>
       <Button />
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
