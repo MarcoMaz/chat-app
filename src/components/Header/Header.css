@@ -1,3 +1,7 @@
 .Header {
-  background: #eeeeee;
+  border-bottom: 2px solid #eeeeee;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  text-align: left;
 }

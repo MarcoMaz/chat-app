@@ -18,7 +18,7 @@
 }
 
 .Chat {
-  border: 1px solid;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);  
   border-radius: 1.5rem;
   margin: 0 auto;
   max-width: 15rem;
