@@ -1,5 +1,8 @@
-.App {
+.App {  
+  align-items: center;
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
   text-align: center;
 }
 
