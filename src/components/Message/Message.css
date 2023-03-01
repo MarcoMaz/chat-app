@@ -1,6 +1,7 @@
 .Message {
   border-radius: 1.5rem;
   color: white;
+  max-width: 5rem;
   padding: 0.5rem;
 }
 
