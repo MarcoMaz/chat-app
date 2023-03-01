@@ -1,9 +1,11 @@
-import Button from '../Button/Button';
+import InputText from '../InputText/InputText';
+import SendButton from '../SendButton/SendButton';
 
 const Footer = () => {
   return (
     <footer>
-      <Button />
+      <InputText />
+      <SendButton />
     </footer>
   );
 };
