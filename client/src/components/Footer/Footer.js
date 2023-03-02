@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './Footer.css';
 
@@ -8,6 +8,33 @@ import SendButton from '../SendButton/SendButton';
 
 const Footer = ({ socket }) => {
   const [message, setMessage] = useState('');
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageEvent);
+
+    const storedUserName = sessionStorage.getItem('userName');
+
+    if (storedUserName) {
+      setUserName(storedUserName);
+    } else {
+      const newUserName = `User ${Math.floor(Math.random() * 10000)}`;
+      setUserName(newUserName);
+      sessionStorage.setItem('userName', newUserName);
+    }
+
+    return () => {
+      window.removeEventListener('storage', handleStorageEvent);
+    };
+  }, []);
+
+  const handleStorageEvent = (event) => {
+    if (event.key === 'userName' && !event.newValue) {
+      const newUserName = `User ${Math.floor(Math.random() * 10000)}`;
+      setUserName(newUserName);
+      sessionStorage.setItem('userName', newUserName);
+    }
+  };
 
   const handleMessage = (e) => {
     e.preventDefault();
