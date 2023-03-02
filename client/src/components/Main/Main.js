@@ -17,14 +17,19 @@ const Main = ({ socket }) => {
       {/* {messages.map(({ text }, index) => (
         <Message key={index} text={text} />
       ))} */}
-      {messages.map((message) => {
-        console.log(
-          'message.userName',
-          message.userName,
-          "sessionStorage.getItem('userName')",
-          sessionStorage.getItem('userName')
-        );
-      })}
+      {messages.map((message) =>
+        message.userName === sessionStorage.getItem('userName') ? (
+          <div key={message.id}>
+            <strong>You</strong>
+            <p>{message.text}</p>
+          </div>
+        ) : (
+          <div key={message.id}>
+            <strong>Them</strong>
+            <p>{message.text}</p>
+          </div>
+        )
+      )}
     </main>
   );
 };
