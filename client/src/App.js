@@ -18,7 +18,7 @@ function App() {
       <div className="Chat">
         <Header />
         <Main />
-        <Footer />
+        <Footer socket={socket} />
       </div>
     </div>
   );

@@ -16,6 +16,11 @@ app.use(cors());
 
 socketIO.on("connection", (socket) => {
   console.log('Connected!!', socket.id);
+
+  socket.on('message', (data) => {
+    console.log(data);
+  });
+
 });
 
 app.get("/api", (req, res) => {
