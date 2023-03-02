@@ -9,8 +9,6 @@ import SendButton from '../SendButton/SendButton';
 const Footer = ({ socket }) => {
   const [message, setMessage] = useState('');
 
-  console.log('message', message);
-
   const handleMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {

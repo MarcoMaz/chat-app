@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <div className="Chat">
         <Header />
-        <Main />
+        <Main socket={socket} />
         <Footer socket={socket} />
       </div>
     </div>
