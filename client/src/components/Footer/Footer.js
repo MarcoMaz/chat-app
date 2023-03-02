@@ -42,7 +42,8 @@ const Footer = ({ socket }) => {
       socket.emit('message', {
         text: message,
         id: `${socket.id}${Math.random()}`,
-        socketID: socket.id
+        socketID: socket.id,
+        userName: userName
       });
     }
     setMessage('');
