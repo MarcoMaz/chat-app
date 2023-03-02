@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Main.css';
 
-import Message from '../Message/Message';
+// import Message from '../Message/Message';
 
 const Main = ({ socket }) => {
   const [messages, setMessages] = useState([]);
@@ -16,9 +16,12 @@ const Main = ({ socket }) => {
 
   return (
     <main className="Main">
-      {messages.map(({ text }, index) => (
+      {/* {messages.map(({ text }, index) => (
         <Message key={index} text={text} />
-      ))}
+      ))} */}
+      {messages.map((message) => {
+        console.log('message', message);
+      })}
     </main>
   );
 };
