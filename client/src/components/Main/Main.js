@@ -14,18 +14,12 @@ const Main = ({ socket }) => {
 
   return (
     <main className="Main">
-      {/* {messages.map(({ text }, index) => (
-        <Message key={index} text={text} />
-      ))} */}
       {messages.map((message, index) => {
         const isSender = message.userName === sessionStorage.getItem('userName');
         return isSender ? (
           <Message key={index} text={message.text} isSender={isSender} />
         ) : (
-          <div key={message.id}>
-            <strong>Them</strong>
-            <p>{message.text}</p>
-          </div>
+          <Message key={index} text={message.text} isSender={isSender} />
         );
       })}
     </main>
