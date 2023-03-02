@@ -12,15 +12,18 @@ const Main = ({ socket }) => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
   }, [socket, messages]);
 
-  console.log('messages', messages);
-
   return (
     <main className="Main">
       {/* {messages.map(({ text }, index) => (
         <Message key={index} text={text} />
       ))} */}
       {messages.map((message) => {
-        console.log('message', message);
+        console.log(
+          'message.userName',
+          message.userName,
+          "sessionStorage.getItem('userName')",
+          sessionStorage.getItem('userName')
+        );
       })}
     </main>
   );
