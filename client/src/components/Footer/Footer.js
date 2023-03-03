@@ -96,6 +96,7 @@ const Footer = ({ socket }) => {
     setMessage('');
   };
 
+  // Todo: Fix this logic
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
     sessionStorage.setItem('chatAppName', textValue);
