@@ -81,7 +81,7 @@ const Footer = ({ socket }) => {
               handleNickCommand(textValue);
               break;
             case '/think':
-              sendSocketMessage(socket, textValue, userName, chatAppName, '-highlight');
+              handleThinkCommand(textValue);
               break;
             case '/oops':
               console.log('--> oops');
@@ -101,6 +101,10 @@ const Footer = ({ socket }) => {
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
     sessionStorage.setItem('chatAppName', textValue);
+  };
+
+  const handleThinkCommand = (textValue) => {
+    sendSocketMessage(socket, textValue, userName, chatAppName, '-highlight');
   };
 
   const handleChange = (e) => {
