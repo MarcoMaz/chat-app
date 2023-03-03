@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './Main.css';
 
 import Message from '../Message/Message';
 
-const Main = ({ socket }) => {
-  const [messages, setMessages] = useState([]);
-
+const Main = ({ socket, messages, setMessages }) => {
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
   }, [socket, messages]);
@@ -27,7 +25,9 @@ const Main = ({ socket }) => {
 };
 
 Main.propTypes = {
-  socket: PropTypes.object.isRequired
+  socket: PropTypes.object.isRequired,
+  messages: PropTypes.array.isRequired,
+  setMessages: PropTypes.func.isRequired
 };
 
 export default Main;

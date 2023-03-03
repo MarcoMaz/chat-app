@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import socketIO from 'socket.io-client';
@@ -12,11 +12,13 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 function App() {
+  const [messages, setMessages] = useState([]);
+
   return (
     <div className="App">
       <div className="Chat">
         <Header />
-        <Main socket={socket} />
+        <Main socket={socket} messages={messages} setMessages={setMessages} />
         <Footer socket={socket} />
       </div>
     </div>
