@@ -9,9 +9,9 @@ import SendButton from '../SendButton/SendButton';
 const Footer = ({ socket }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
-  const [chatApp, setChatApp] = useState('');
+  const [chatAppName, setChatAppName] = useState('');
 
-  console.log('chatApp = ', chatApp);
+  console.log('chatAppName = ', chatAppName);
 
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
@@ -28,6 +28,21 @@ const Footer = ({ socket }) => {
 
     return () => {
       window.removeEventListener('storage', handleStorageEvent);
+    };
+  }, []);
+
+  useEffect(() => {
+    const storedChatAppName = sessionStorage.getItem('chatAppName');
+    if (storedChatAppName) setChatAppName(storedChatAppName);
+
+    const handleStorageChange = (event) => {
+      if (event.key === 'chatAppName') setChatAppName(event.newValue);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
 
@@ -65,7 +80,6 @@ const Footer = ({ socket }) => {
           switch (command) {
             case '/nick':
               handleNickCommand(textValue);
-              sendSocketMessage(socket, message, userName);
               break;
             case '/think':
               console.log('--> think');
@@ -85,8 +99,8 @@ const Footer = ({ socket }) => {
   };
 
   const handleNickCommand = (textValue) => {
-    setChatApp(textValue);
-    sessionStorage.setItem('chatApp', chatApp);
+    setChatAppName(textValue);
+    sessionStorage.setItem('chatAppName', chatAppName);
   };
 
   const handleChange = (e) => {
