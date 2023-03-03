@@ -11,8 +11,6 @@ const Footer = ({ socket }) => {
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
 
-  console.log('chatAppName = ', chatAppName);
-
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
 
@@ -54,13 +52,13 @@ const Footer = ({ socket }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName, chatApp) => {
+  const sendSocketMessage = (socket, message, userName, chatAppName) => {
     socket.emit('message', {
       text: message,
       id: `${socket.id}${Math.random()}`,
       socketID: socket.id,
       userName: userName,
-      chatApp: chatApp
+      chatAppName: chatAppName
     });
   };
 
@@ -75,7 +73,7 @@ const Footer = ({ socket }) => {
         const textValue = match[2];
 
         if (textValue !== null && textValue !== undefined && textValue.trim() === '') {
-          sendSocketMessage(socket, message, userName);
+          sendSocketMessage(socket, message, userName, chatAppName);
         } else {
           switch (command) {
             case '/nick':
@@ -92,7 +90,7 @@ const Footer = ({ socket }) => {
           }
         }
       } else {
-        sendSocketMessage(socket, message, userName);
+        sendSocketMessage(socket, message, userName, chatAppName);
       }
     }
     setMessage('');
