@@ -39,12 +39,13 @@ const Footer = ({ socket }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName) => {
+  const sendSocketMessage = (socket, message, userName, chatApp) => {
     socket.emit('message', {
       text: message,
       id: `${socket.id}${Math.random()}`,
       socketID: socket.id,
-      userName: userName
+      userName: userName,
+      chatApp: chatApp
     });
   };
 
@@ -64,6 +65,7 @@ const Footer = ({ socket }) => {
           switch (command) {
             case '/nick':
               handleNickCommand(textValue);
+              sendSocketMessage(socket, message, userName);
               break;
             case '/think':
               console.log('--> think');
