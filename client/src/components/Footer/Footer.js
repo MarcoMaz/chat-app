@@ -9,6 +9,9 @@ import SendButton from '../SendButton/SendButton';
 const Footer = ({ socket }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
+  const [chatApp, setChatApp] = useState('');
+
+  console.log('chatApp = ', chatApp);
 
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
@@ -60,7 +63,7 @@ const Footer = ({ socket }) => {
         } else {
           switch (command) {
             case '/nick':
-              console.log('--> nick');
+              handleNickCommand(textValue);
               break;
             case '/think':
               console.log('--> think');
@@ -77,6 +80,11 @@ const Footer = ({ socket }) => {
       }
     }
     setMessage('');
+  };
+
+  const handleNickCommand = (textValue) => {
+    setChatApp(textValue);
+    sessionStorage.setItem('chatApp', chatApp);
   };
 
   const handleChange = (e) => {
