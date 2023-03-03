@@ -37,13 +37,16 @@ const Footer = ({ socket }) => {
   };
 
   const handleMessage = (e) => {
-    const commandRegex = /\s?(nick|think|oops)\s*(.*)/;
+    const commandRegex = /\s?(\/nick|\/think|\/oops)\s*(.*)/;
     const match = message.match(commandRegex);
 
-    console.log('match', match);
-
     if (match) {
-      console.log(match);
+      // console.log('match[0]:', match[0], ' - match[1]: ', match[1], ' - match[2]:', match[2]);
+
+      // const command = match[1];
+      const textValue = match[2];
+      console.log(textValue);
+      // TODO: check if text value is not empty
     }
 
     e.preventDefault();
