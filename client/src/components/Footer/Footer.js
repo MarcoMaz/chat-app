@@ -42,12 +42,18 @@ const Footer = ({ socket }) => {
       const commandRegex = /\s?(\/nick|\/think|\/oops)\s*(.*)/;
       const match = message.match(commandRegex);
 
-      // TODO: check if text value is not empty
       if (match) {
         const command = match[1];
         const textValue = match[2];
-        console.log('textValue', textValue);
-        if (textValue.trim() !== '') {
+
+        if (textValue !== null && textValue !== undefined && textValue.trim() === '') {
+          socket.emit('message', {
+            text: message,
+            id: `${socket.id}${Math.random()}`,
+            socketID: socket.id,
+            userName: userName
+          });
+        } else {
           switch (command) {
             case '/nick':
               console.log('--> nick');
