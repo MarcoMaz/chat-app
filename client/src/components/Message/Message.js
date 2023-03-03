@@ -16,7 +16,7 @@ const Message = ({ text, isSender, isThinking }) => {
 Message.propTypes = {
   text: PropTypes.string.isRequired,
   isSender: PropTypes.bool.isRequired,
-  isThinking: PropTypes.string.isRequired
+  isThinking: PropTypes.string
 };
 
 export default Message;
