@@ -19,7 +19,7 @@ function App() {
       <div className="Chat">
         <Header />
         <Main socket={socket} messages={messages} setMessages={setMessages} />
-        <Footer socket={socket} />
+        <Footer socket={socket} setMessages={setMessages} />
       </div>
     </div>
   );
