@@ -66,7 +66,7 @@ const Footer = ({ socket }) => {
   const handleMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      const commandRegex = /\s?(\/nick|\/think|\/oops)\s*(.*)/;
+      const commandRegex = /\s?(\/nick|\/think)\s*(.*)/;
       const match = message.match(commandRegex);
 
       if (match) {
@@ -83,13 +83,12 @@ const Footer = ({ socket }) => {
             case '/think':
               handleThinkCommand(textValue);
               break;
-            case '/oops':
-              console.log('--> oops');
-              break;
             default:
               console.log('--> Unknown command');
           }
         }
+      } else if (message.trim() === '/oops') {
+        console.log('---ooops');
       } else {
         sendSocketMessage(socket, message, userName, chatAppName);
       }
