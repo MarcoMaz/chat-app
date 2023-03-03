@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 
 import './Message.css';
 
-const Message = ({ text, isSender, className }) => {
+const Message = ({ text, isSender, isThinking }) => {
   return (
     <div
-      className={`Message ${className ? '-highlight' : ''} ${
+      className={`Message ${isThinking ? 'Message--thinking' : ''} ${
         isSender ? 'Message--sender' : 'Message--receiver'
       }`}>
       {text}
@@ -16,7 +16,7 @@ const Message = ({ text, isSender, className }) => {
 Message.propTypes = {
   text: PropTypes.string.isRequired,
   isSender: PropTypes.bool.isRequired,
-  className: PropTypes.string.isRequired
+  isThinking: PropTypes.string.isRequired
 };
 
 export default Message;

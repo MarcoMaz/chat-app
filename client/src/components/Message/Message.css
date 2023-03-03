@@ -14,3 +14,7 @@
   background-color: green;
   align-self: flex-end;
 }
+
+.Message.Message--thinking {
+  color: darkgrey;
+}
