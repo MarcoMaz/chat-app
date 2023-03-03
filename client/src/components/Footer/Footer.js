@@ -37,6 +37,15 @@ const Footer = ({ socket }) => {
   };
 
   const handleMessage = (e) => {
+    const commandRegex = /\s?(nick|think|oops)\s*(.*)/;
+    const match = message.match(commandRegex);
+
+    console.log('match', match);
+
+    if (match) {
+      console.log(match);
+    }
+
     e.preventDefault();
     if (message.trim()) {
       socket.emit('message', {
