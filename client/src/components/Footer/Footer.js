@@ -37,26 +37,39 @@ const Footer = ({ socket }) => {
   };
 
   const handleMessage = (e) => {
-    const commandRegex = /\s?(\/nick|\/think|\/oops)\s*(.*)/;
-    const match = message.match(commandRegex);
-
-    if (match) {
-      // console.log('match[0]:', match[0], ' - match[1]: ', match[1], ' - match[2]:', match[2]);
-
-      // const command = match[1];
-      const textValue = match[2];
-      console.log(textValue);
-      // TODO: check if text value is not empty
-    }
-
     e.preventDefault();
     if (message.trim()) {
-      socket.emit('message', {
-        text: message,
-        id: `${socket.id}${Math.random()}`,
-        socketID: socket.id,
-        userName: userName
-      });
+      const commandRegex = /\s?(\/nick|\/think|\/oops)\s*(.*)/;
+      const match = message.match(commandRegex);
+
+      // TODO: check if text value is not empty
+      if (match) {
+        const command = match[1];
+        const textValue = match[2];
+        console.log('textValue', textValue);
+        if (textValue.trim() !== '') {
+          switch (command) {
+            case '/nick':
+              console.log('--> nick');
+              break;
+            case '/think':
+              console.log('--> think');
+              break;
+            case '/oops':
+              console.log('--> oops');
+              break;
+            default:
+              console.log('--> Unknown command');
+          }
+        }
+      } else {
+        socket.emit('message', {
+          text: message,
+          id: `${socket.id}${Math.random()}`,
+          socketID: socket.id,
+          userName: userName
+        });
+      }
     }
     setMessage('');
   };
