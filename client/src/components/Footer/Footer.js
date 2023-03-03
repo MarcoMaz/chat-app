@@ -98,7 +98,7 @@ const Footer = ({ socket }) => {
 
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
-    sessionStorage.setItem('chatAppName', chatAppName);
+    sessionStorage.setItem('chatAppName', textValue);
   };
 
   const handleChange = (e) => {
