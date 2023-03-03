@@ -88,7 +88,7 @@ const Footer = ({ socket, setMessages }) => {
           }
         }
       } else if (message.trim() === '/oops') {
-        setMessages((prevMessages) => prevMessages.slice(0, -1));
+        handleOopsCommand();
       } else {
         sendSocketMessage(socket, message, userName, chatAppName);
       }
@@ -104,6 +104,10 @@ const Footer = ({ socket, setMessages }) => {
 
   const handleThinkCommand = (textValue) => {
     sendSocketMessage(socket, textValue, userName, chatAppName, '-highlight');
+  };
+
+  const handleOopsCommand = () => {
+    setMessages((prevMessages) => prevMessages.slice(0, -1));
   };
 
   const handleChange = (e) => {
