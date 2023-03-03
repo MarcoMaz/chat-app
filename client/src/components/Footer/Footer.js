@@ -36,6 +36,15 @@ const Footer = ({ socket }) => {
     }
   };
 
+  const sendSocketMessage = (socket, message, userName) => {
+    socket.emit('message', {
+      text: message,
+      id: `${socket.id}${Math.random()}`,
+      socketID: socket.id,
+      userName: userName
+    });
+  };
+
   const handleMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
@@ -47,12 +56,7 @@ const Footer = ({ socket }) => {
         const textValue = match[2];
 
         if (textValue !== null && textValue !== undefined && textValue.trim() === '') {
-          socket.emit('message', {
-            text: message,
-            id: `${socket.id}${Math.random()}`,
-            socketID: socket.id,
-            userName: userName
-          });
+          sendSocketMessage(socket, message, userName);
         } else {
           switch (command) {
             case '/nick':
@@ -69,12 +73,7 @@ const Footer = ({ socket }) => {
           }
         }
       } else {
-        socket.emit('message', {
-          text: message,
-          id: `${socket.id}${Math.random()}`,
-          socketID: socket.id,
-          userName: userName
-        });
+        sendSocketMessage(socket, message, userName);
       }
     }
     setMessage('');
