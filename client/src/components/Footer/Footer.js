@@ -52,13 +52,14 @@ const Footer = ({ socket }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName, chatAppName) => {
+  const sendSocketMessage = (socket, message, userName, chatAppName, className) => {
     socket.emit('message', {
       text: message,
       id: `${socket.id}${Math.random()}`,
       socketID: socket.id,
       userName: userName,
-      chatAppName: chatAppName
+      chatAppName: chatAppName,
+      className: className
     });
   };
 
@@ -81,6 +82,7 @@ const Footer = ({ socket }) => {
               break;
             case '/think':
               console.log('--> think');
+              sendSocketMessage(socket, textValue, userName, chatAppName, '-highlight');
               break;
             case '/oops':
               console.log('--> oops');
