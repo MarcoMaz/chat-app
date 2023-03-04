@@ -1,5 +1,5 @@
 .Header {
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid var(--light-gray);
   font-weight: bold;
   margin-bottom: 2rem;
   padding: 1rem;
