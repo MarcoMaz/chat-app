@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './InputText.css';
 
-const InputText = ({ value, onChange }) => {
+const InputText = ({ value, onChange, onKeyDown }) => {
   return (
     <input
       className="InputText"
@@ -9,13 +9,15 @@ const InputText = ({ value, onChange }) => {
       placeholder="Send a message"
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 };
 
 InputText.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired
 };
 
 export default InputText;

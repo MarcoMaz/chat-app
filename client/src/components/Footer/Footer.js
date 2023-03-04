@@ -98,9 +98,15 @@ const Footer = ({ socket }) => {
     setMessage(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleMessage(e);
+    }
+  };
+
   return (
     <footer className="Footer">
-      <InputText value={message} onChange={handleChange} />
+      <InputText value={message} onChange={handleChange} onKeyDown={handleKeyDown} />
       <SendButton handleMessage={handleMessage} />
     </footer>
   );
