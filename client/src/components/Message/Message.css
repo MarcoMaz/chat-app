@@ -1,5 +1,5 @@
 .Message {
-  /* border-radius: 1.5rem; */
+  border-radius: 15px;
   color: var(--black);
   max-width: 9rem;
   margin-bottom: 0.5rem;
@@ -9,10 +9,10 @@
   width: fit-content;
 }
 
-/* fix width around */
 .Message.Message--sender {
   background-color: var(--bubble-sender);
   border: 1px solid var(--bubble-sender-border);
+  left: 2rem;
 }
 
 .Message.Message--receiver {
@@ -20,31 +20,50 @@
   background-color: var(--bubble-receiver);
   border: 1px solid var(--bubble-receiver-border);
   right: 2rem;
-  border-radius: 15px;
 }
 
 .Message.Message--thinking {
   color: var(--dark-grey)
 }
 
-.Message__arrow.Message__arrow--left {
-  background: red;
+.Message__arrow--right::before,
+.Message__arrow--right::after,
+.Message__arrow--left::before,
+.Message__arrow--left::after {
+  content: "";
+  position: absolute;
+}  
+
+.Message__arrow--right::before,
+.Message__arrow--right::after {
+  border-right: 24px solid transparent;
 }
 
 .Message__arrow--right::before {
-  border-right: 24px solid transparent;
   border-bottom: 16px solid var(--bubble-receiver-border);
   bottom: 2px;
-  content: "";
-  position: absolute;
   right: -17px;
 }
 
 .Message__arrow--right::after {
-  border-right: 24px solid transparent;
   border-bottom: 16px solid var(--bubble-receiver);
   bottom: 3px;
-  content: "";
-  position: absolute;
   right: -16px;
+}
+
+.Message__arrow--left::before,
+.Message__arrow--left::after {
+  border-left: 24px solid transparent;
+}
+
+.Message__arrow--left::before {
+  border-bottom: 16px solid var(--bubble-sender-border);
+  bottom: 2px;
+  left: -17px;
+}
+
+.Message__arrow--left::after {
+  border-bottom: 16px solid var(--bubble-sender);
+  bottom: 3px;
+  left: -16px;
 }
