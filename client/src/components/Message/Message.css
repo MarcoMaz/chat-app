@@ -38,19 +38,19 @@
 }
 
 .Message__arrow--right::before {
-  border-right: 23px solid transparent;
-    border-bottom: 23px solid var(--bubble-receiver-border);
-    bottom: 2px;
-    content: "";
-    position: absolute;
-    right: -24px;
+  border-right: 24px solid transparent;
+  border-bottom: 16px solid var(--bubble-receiver-border);
+  bottom: 2px;
+  content: "";
+  position: absolute;
+  right: -17px;
 }
 
 .Message__arrow--right::after {
   border-right: 24px solid transparent;
-  border-bottom: 12px solid var(--bubble-receiver);
+  border-bottom: 16px solid var(--bubble-receiver);
   bottom: 3px;
   content: "";
   position: absolute;
-  right: -21px;
+  right: -16px;
 }
