@@ -29,21 +29,6 @@ const Footer = ({ socket, setMessages }) => {
     };
   }, []);
 
-  useEffect(() => {
-    const storedChatAppName = sessionStorage.getItem('chatAppName');
-    if (storedChatAppName) setChatAppName(storedChatAppName);
-
-    const handleStorageChange = (event) => {
-      if (event.key === 'chatAppName') setChatAppName(event.newValue);
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
   const handleStorageEvent = (event) => {
     if (event.key === 'userName' && !event.newValue) {
       const newUserName = `User ${Math.floor(Math.random() * 10000)}`;
@@ -52,13 +37,12 @@ const Footer = ({ socket, setMessages }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName, chatAppName, isThinking) => {
+  const sendSocketMessage = (socket, message, userName, isThinking) => {
     socket.emit('message', {
       text: message,
       id: `${socket.id}${Math.random()}`,
       socketID: socket.id,
       userName: userName,
-      chatAppName: chatAppName,
       isThinking: isThinking
     });
   };
@@ -74,7 +58,7 @@ const Footer = ({ socket, setMessages }) => {
         const textValue = match[2];
 
         if (textValue !== null && textValue !== undefined && textValue.trim() === '') {
-          sendSocketMessage(socket, message, userName, chatAppName);
+          sendSocketMessage(socket, message, userName);
         } else {
           switch (command) {
             case '/nick':
@@ -90,7 +74,7 @@ const Footer = ({ socket, setMessages }) => {
       } else if (message.trim() === '/oops') {
         handleOopsCommand();
       } else {
-        sendSocketMessage(socket, message, userName, chatAppName);
+        sendSocketMessage(socket, message, userName);
       }
     }
     setMessage('');
@@ -100,7 +84,7 @@ const Footer = ({ socket, setMessages }) => {
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
     sessionStorage.setItem('chatAppName', textValue);
-    socket.emit('chatAppName', { chatAppName: textValue });
+    socket.emit('chatAppName', { chatAppName: textValue, userName: userName });
   };
 
   const handleThinkCommand = (textValue) => {

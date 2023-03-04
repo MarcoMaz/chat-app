@@ -17,8 +17,7 @@ function App() {
 
   useEffect(() => {
     socket.on('chatAppNameResponse', (data) => {
-      console.log(data.chatAppName);
-      setChatAppName(data.chatAppName);
+      if (data.userName !== sessionStorage.getItem('userName')) setChatAppName(data.chatAppName);
     });
   }, [socket]);
 
