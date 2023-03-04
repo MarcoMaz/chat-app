@@ -39,9 +39,18 @@
 
 .Message__arrow--right::before {
   border-right: 23px solid transparent;
-    border-bottom: 23px solid #a7a7a7;
+    border-bottom: 23px solid var(--bubble-receiver-border);
     bottom: 2px;
     content: "";
     position: absolute;
-    right: -1.5rem;
+    right: -24px;
+}
+
+.Message__arrow--right::after {
+  border-right: 21px solid transparent;
+  border-bottom: 21px solid var(--bubble-receiver);
+  bottom: 3px;
+  content: "";
+  position: absolute;
+  right: -21px;
 }
