@@ -1,20 +1,24 @@
 .Message {
   border-radius: 1.5rem;
-  color: white;
+  color: var(--black);
   max-width: 7rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+  text-align: left;
 }
 
+/* fix width around */
 .Message.Message--sender {
-  background-color: gray;
+  background-color: var(--bubble-sender);
+  border: 1px solid #878A91;
 }
 
 .Message.Message--receiver {
-  background-color: green;
-  align-self: flex-end;
+  align-self: flex-end;  
+  background-color: var(--bubble-receiver);
+  border: 1px solid #6F8873;
 }
 
 .Message.Message--thinking {
-  color: darkgrey;
+  color: var(--dark-grey)
 }

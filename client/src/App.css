@@ -1,7 +1,12 @@
 :root {
+  --white: #ffffff;
+  --black: #000000;
   --chat-background-color: #DBE1ED;
   --light-gray: #eeeeee;
+  --dark-gray: #bebebe;
   --light-blue: lightblue;
+  --bubble-sender:#E0E0DF;
+  --bubble-receiver: #C2E2AB;
 }
 
 .App {  
