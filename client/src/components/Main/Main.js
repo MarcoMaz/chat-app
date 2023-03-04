@@ -8,6 +8,10 @@ import Message from '../Message/Message';
 const Main = ({ socket, messages, setMessages }) => {
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
+    socket.on('removeLastMessageResponse', () => {
+      const updatedMessages = messages.slice(0, -1);
+      setMessages(updatedMessages);
+    });
   }, [socket, messages]);
 
   return (

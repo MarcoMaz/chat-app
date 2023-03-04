@@ -26,7 +26,7 @@ function App() {
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
-        <Footer socket={socket} setMessages={setMessages} />
+        <Footer socket={socket} />
       </div>
     </div>
   );

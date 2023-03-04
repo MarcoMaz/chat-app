@@ -6,7 +6,7 @@ import './Footer.css';
 import InputText from '../InputText/InputText';
 import SendButton from '../SendButton/SendButton';
 
-const Footer = ({ socket, setMessages }) => {
+const Footer = ({ socket }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
@@ -91,7 +91,7 @@ const Footer = ({ socket, setMessages }) => {
   };
 
   const handleOopsCommand = () => {
-    setMessages((prevMessages) => prevMessages.slice(0, -1));
+    socket.emit('removeLastMessage');
   };
 
   const handleChange = (e) => {
@@ -107,8 +107,7 @@ const Footer = ({ socket, setMessages }) => {
 };
 
 Footer.propTypes = {
-  socket: PropTypes.object.isRequired,
-  setMessages: PropTypes.func.isRequired
+  socket: PropTypes.object.isRequired
 };
 
 export default Footer;

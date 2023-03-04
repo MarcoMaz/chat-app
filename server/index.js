@@ -26,6 +26,10 @@ socketIO.on("connection", (socket) => {
     console.log('chatAppName', data)
     socketIO.emit("chatAppNameResponse", data);
   });
+
+  socket.on("removeLastMessage", (data) => {
+    socketIO.emit("removeLastMessageResponse");
+  });
 });
 
 app.get("/api", (req, res) => {
