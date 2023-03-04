@@ -1,7 +1,12 @@
+import PropTypes from 'prop-types';
 import './Header.css';
 
-const Header = () => {
-  return <header className="Header">chatApp</header>;
+const Header = ({ chatAppName }) => {
+  return <header className="Header">{chatAppName}</header>;
+};
+
+Header.propTypes = {
+  chatAppName: PropTypes.string
 };
 
 export default Header;

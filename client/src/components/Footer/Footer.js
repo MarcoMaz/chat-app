@@ -100,6 +100,7 @@ const Footer = ({ socket, setMessages }) => {
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
     sessionStorage.setItem('chatAppName', textValue);
+    socket.emit('chatAppName', { chatAppName: textValue });
   };
 
   const handleThinkCommand = (textValue) => {

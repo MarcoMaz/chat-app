@@ -15,13 +15,17 @@ const socketIO = require("socket.io")(http, {
 app.use(cors());
 
 socketIO.on("connection", (socket) => {
-  console.log('Connected!!', socket.id);
+  console.log("Connected!!", socket.id);
 
-  socket.on('message', (data) => {
+  socket.on("message", (data) => {
     console.log(data);
-    socketIO.emit('messageResponse', data);
+    socketIO.emit("messageResponse", data);
   });
 
+  socket.on("chatAppName", (data) => {
+    console.log(data)
+    socketIO.emit("chatAppNameResponse", data);
+  });
 });
 
 app.get("/api", (req, res) => {

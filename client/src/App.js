@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import socketIO from 'socket.io-client';
@@ -13,11 +13,19 @@ import Header from './components/Header/Header';
 
 function App() {
   const [messages, setMessages] = useState([]);
+  const [chatAppName, setChatAppName] = useState('');
+
+  useEffect(() => {
+    socket.on('chatAppNameResponse', (data) => {
+      console.log(data.chatAppName);
+      setChatAppName(data.chatAppName);
+    });
+  }, [socket]);
 
   return (
     <div className="App">
       <div className="Chat">
-        <Header />
+        {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
         <Footer socket={socket} setMessages={setMessages} />
       </div>
