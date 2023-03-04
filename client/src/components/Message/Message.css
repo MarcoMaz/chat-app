@@ -20,21 +20,15 @@
   background-color: var(--bubble-receiver);
   border: 1px solid var(--bubble-receiver-border);
   right: 2rem;
+  border-radius: 15px;
 }
 
 .Message.Message--thinking {
   color: var(--dark-grey)
 }
 
-/* .Message__arrow {
-  position: absolute;
-} */
-
 .Message__arrow.Message__arrow--left {
   background: red;
-}
-.Message__arrow.Message__arrow--right {
-  background: blue;
 }
 
 .Message__arrow--right::before {
