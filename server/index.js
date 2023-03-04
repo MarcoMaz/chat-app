@@ -38,6 +38,10 @@ socketIO.on("connection", (socket) => {
   socket.on("stopTyping", (data) => {
     socketIO.emit("stopTypingResponse", data);
   });
+  socket.on("smile", (data) => {
+    console.log(data)
+    socketIO.emit("smileResponse", data);
+  });
 });
 
 app.get("/api", (req, res) => {
