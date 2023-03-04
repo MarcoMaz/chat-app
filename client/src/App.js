@@ -14,10 +14,14 @@ import Header from './components/Header/Header';
 function App() {
   const [messages, setMessages] = useState([]);
   const [chatAppName, setChatAppName] = useState('');
+  const [isUserTyping, setIsUserTyping] = useState(false);
 
   useEffect(() => {
     socket.on('chatAppNameResponse', (data) => {
       if (data.userName !== sessionStorage.getItem('userName')) setChatAppName(data.chatAppName);
+    });
+    socket.on('typingResponse', (data) => {
+      if (data.userName !== sessionStorage.getItem('userName')) setIsUserTyping(true);
     });
   }, [socket]);
 
@@ -26,7 +30,7 @@ function App() {
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
-        <Footer socket={socket} />
+        <Footer socket={socket} isUserTyping={isUserTyping} />
       </div>
     </div>
   );

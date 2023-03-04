@@ -7,7 +7,7 @@ import Typing from '../Typing/Typing';
 import InputText from '../InputText/InputText';
 import SendButton from '../SendButton/SendButton';
 
-const Footer = ({ socket }) => {
+const Footer = ({ socket, isUserTyping }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
@@ -96,8 +96,8 @@ const Footer = ({ socket }) => {
   };
 
   const handleChange = (e) => {
-    console.log('typing');
     setMessage(e.target.value);
+    if (e.target.value !== '') socket.emit('typing');
   };
 
   const handleKeyDown = (e) => {
@@ -108,7 +108,7 @@ const Footer = ({ socket }) => {
 
   return (
     <footer className="Footer">
-      <Typing />
+      {isUserTyping && <Typing />}
       <InputText value={message} onChange={handleChange} onKeyDown={handleKeyDown} />
       <SendButton handleMessage={handleMessage} isDisabled={message} />
     </footer>
@@ -116,7 +116,8 @@ const Footer = ({ socket }) => {
 };
 
 Footer.propTypes = {
-  socket: PropTypes.object.isRequired
+  socket: PropTypes.object.isRequired,
+  isUserTyping: PropTypes.bool.isRequired
 };
 
 export default Footer;

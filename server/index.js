@@ -27,8 +27,12 @@ socketIO.on("connection", (socket) => {
     socketIO.emit("chatAppNameResponse", data);
   });
 
-  socket.on("removeLastMessage", (data) => {
+  socket.on("removeLastMessage", () => {
     socketIO.emit("removeLastMessageResponse");
+  });
+
+  socket.on("typing", () => {
+    socketIO.emit("typingResponse");
   });
 });
 
