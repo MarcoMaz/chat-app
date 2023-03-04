@@ -12,8 +12,6 @@ const Footer = ({ socket, isUserTyping }) => {
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
 
-  console.log('IS USER TYPING', isUserTyping);
-
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
 
