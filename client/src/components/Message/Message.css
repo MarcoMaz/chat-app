@@ -17,6 +17,17 @@
   align-self: flex-end;  
   background-color: var(--bubble-receiver);
   border: 1px solid #6F8873;
+  position: relative;
+}
+
+.Message.Message--receiver:after {
+  background: red;
+  content: '';
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
 }
 
 .Message.Message--thinking {
