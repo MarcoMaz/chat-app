@@ -7,10 +7,12 @@ import Typing from '../Typing/Typing';
 import InputText from '../InputText/InputText';
 import SendButton from '../SendButton/SendButton';
 
-const Footer = ({ socket, isUserTyping }) => {
+const Footer = ({ socket, isUserTyping, setIsUserTyping }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
+
+  console.log('IS USER TYPING');
 
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
@@ -49,6 +51,8 @@ const Footer = ({ socket, isUserTyping }) => {
   };
 
   const handleMessage = (e) => {
+    console.log('you hit the button');
+
     e.preventDefault();
     if (message.trim()) {
       const commandRegex = /\s?(\/nick|\/think)\s*(.*)/;
@@ -79,6 +83,7 @@ const Footer = ({ socket, isUserTyping }) => {
       }
     }
     setMessage('');
+    setIsUserTyping(false);
   };
 
   const handleNickCommand = (textValue) => {
@@ -117,7 +122,8 @@ const Footer = ({ socket, isUserTyping }) => {
 
 Footer.propTypes = {
   socket: PropTypes.object.isRequired,
-  isUserTyping: PropTypes.bool.isRequired
+  isUserTyping: PropTypes.bool.isRequired,
+  setIsUserTyping: PropTypes.func.isRequired
 };
 
 export default Footer;

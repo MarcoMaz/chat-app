@@ -23,14 +23,14 @@ function App() {
     socket.on('typingResponse', (data) => {
       if (data.userName !== sessionStorage.getItem('userName')) setIsUserTyping(true);
     });
-  }, [socket]);
+  }, [socket, setIsUserTyping]);
 
   return (
     <div className="App">
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
-        <Footer socket={socket} isUserTyping={isUserTyping} />
+        <Footer socket={socket} isUserTyping={isUserTyping} setIsUserTyping={setIsUserTyping} />
       </div>
     </div>
   );
