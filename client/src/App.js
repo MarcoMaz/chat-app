@@ -23,6 +23,9 @@ function App() {
     socket.on('typingResponse', (data) => {
       if (data.userName !== sessionStorage.getItem('userName')) setIsUserTyping(true);
     });
+    socket.on('stopTypingResponse', (data) => {
+      if (data.userName !== sessionStorage.getItem('userName')) setIsUserTyping(false);
+    });
   }, [socket, setIsUserTyping]);
 
   return (

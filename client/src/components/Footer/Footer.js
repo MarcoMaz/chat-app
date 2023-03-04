@@ -7,12 +7,12 @@ import Typing from '../Typing/Typing';
 import InputText from '../InputText/InputText';
 import SendButton from '../SendButton/SendButton';
 
-const Footer = ({ socket, isUserTyping, setIsUserTyping }) => {
+const Footer = ({ socket, isUserTyping }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [chatAppName, setChatAppName] = useState('');
 
-  console.log('IS USER TYPING');
+  console.log('IS USER TYPING', isUserTyping);
 
   useEffect(() => {
     window.addEventListener('storage', handleStorageEvent);
@@ -83,7 +83,7 @@ const Footer = ({ socket, isUserTyping, setIsUserTyping }) => {
       }
     }
     setMessage('');
-    setIsUserTyping(false);
+    socket.emit('stopTyping', { userName: userName });
   };
 
   const handleNickCommand = (textValue) => {
@@ -123,7 +123,7 @@ const Footer = ({ socket, isUserTyping, setIsUserTyping }) => {
 Footer.propTypes = {
   socket: PropTypes.object.isRequired,
   isUserTyping: PropTypes.bool.isRequired,
-  setIsUserTyping: PropTypes.func.isRequired
+  setIsUserTyping: PropTypes.func
 };
 
 export default Footer;

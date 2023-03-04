@@ -32,8 +32,11 @@ socketIO.on("connection", (socket) => {
   });
 
   socket.on("typing", (data) => {
-    console.log(data)
     socketIO.emit("typingResponse", data);
+  });
+
+  socket.on("stopTyping", (data) => {
+    socketIO.emit("stopTypingResponse", data);
   });
 });
 
