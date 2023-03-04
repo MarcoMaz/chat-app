@@ -23,7 +23,7 @@
 }
 
 .Message.Message--thinking {
-  color: var(--dark-grey)
+  color: var(--dark-gray)
 }
 
 .Message__arrow--right::before,

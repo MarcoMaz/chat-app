@@ -80,15 +80,14 @@ const Footer = ({ socket, setMessages }) => {
     setMessage('');
   };
 
-  // Todo: Fix this logic
   const handleNickCommand = (textValue) => {
     setChatAppName(textValue);
-    sessionStorage.setItem('chatAppName', textValue);
+    sessionStorage.setItem('chatAppName', chatAppName);
     socket.emit('chatAppName', { chatAppName: textValue, userName: userName });
   };
 
   const handleThinkCommand = (textValue) => {
-    sendSocketMessage(socket, textValue, userName, chatAppName, '-highlight');
+    sendSocketMessage(socket, textValue, userName, '-highlight');
   };
 
   const handleOopsCommand = () => {
