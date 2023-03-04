@@ -47,8 +47,8 @@
 }
 
 .Message__arrow--right::after {
-  border-right: 21px solid transparent;
-  border-bottom: 21px solid var(--bubble-receiver);
+  border-right: 24px solid transparent;
+  border-bottom: 12px solid var(--bubble-receiver);
   bottom: 3px;
   content: "";
   position: absolute;
