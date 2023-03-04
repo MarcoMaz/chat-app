@@ -9,6 +9,10 @@ const Message = ({ text, isSender, isThinking }) => {
         isSender ? 'Message--sender' : 'Message--receiver'
       }`}>
       {text}
+      <div
+        className={`Message__arrow ${
+          isSender ? 'Message__arrow--left' : 'Message__arrow--right'
+        }`}></div>
     </div>
   );
 };

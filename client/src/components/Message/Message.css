@@ -1,11 +1,11 @@
 .Message {
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
   color: var(--black);
   max-width: 9rem;
   margin-bottom: 0.5rem;
   padding: 1rem;
+  position: relative;
   text-align: left;
-
   width: fit-content;
 }
 
@@ -19,9 +19,29 @@
   align-self: flex-end;  
   background-color: var(--bubble-receiver);
   border: 1px solid var(--bubble-receiver-border);
-  position: relative;
+  right: 2rem;
 }
 
 .Message.Message--thinking {
   color: var(--dark-grey)
+}
+
+/* .Message__arrow {
+  position: absolute;
+} */
+
+.Message__arrow.Message__arrow--left {
+  background: red;
+}
+.Message__arrow.Message__arrow--right {
+  background: blue;
+}
+
+.Message__arrow--right::before {
+  border-right: 23px solid transparent;
+    border-bottom: 23px solid #a7a7a7;
+    bottom: 2px;
+    content: "";
+    position: absolute;
+    right: -1.5rem;
 }
