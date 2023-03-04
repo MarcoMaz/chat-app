@@ -6,10 +6,10 @@
   --light-gray: #eeeeee;
   --dark-gray: #bebebe;
   --light-blue: lightblue;
-  --bubble-sender:#E0E0DF;
-  --bubble-sender-border: #878A91;
-  --bubble-receiver: #C2E2AB;
-  --bubble-receiver-border: #6F8873;
+  --bubble-sender: #C2E2AB;
+  --bubble-sender-border: #6F8873;
+  --bubble-receiver:#E0E0DF;
+  --bubble-receiver-border: #878A91;
 }
 
 .App {  

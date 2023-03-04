@@ -11,7 +11,7 @@ const Message = ({ text, isSender, isThinking }) => {
       {text}
       <div
         className={`Message__arrow ${
-          isSender ? 'Message__arrow--left' : 'Message__arrow--right'
+          isSender ? 'Message__arrow--right' : 'Message__arrow--left'
         }`}></div>
     </div>
   );

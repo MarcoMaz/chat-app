@@ -10,16 +10,16 @@
 }
 
 .Message.Message--sender {
+  align-self: flex-end;  
   background-color: var(--bubble-sender);
   border: 0.0625rem solid var(--bubble-sender-border);
-  left: 2rem;
+  right: 2rem;
 }
 
 .Message.Message--receiver {
-  align-self: flex-end;  
   background-color: var(--bubble-receiver);
   border: 0.0625rem solid var(--bubble-receiver-border);
-  right: 2rem;
+  left: 2rem;
 }
 
 .Message.Message--thinking {
@@ -40,13 +40,13 @@
 }
 
 .Message__arrow--right::before {
-  border-bottom: 1rem solid var(--bubble-receiver-border);
+  border-bottom: 1rem solid var(--bubble-sender-border);
   bottom: 0.125rem; /* 2px */
   right: -1.0625rem; /* -17px */
 }
 
 .Message__arrow--right::after {
-  border-bottom: 1rem solid var(--bubble-receiver);
+  border-bottom: 1rem solid var(--bubble-sender);
   bottom: 0.1875rem; /* 3px */
   right: -1rem;
 }
@@ -57,13 +57,13 @@
 }
 
 .Message__arrow--left::before {
-  border-bottom: 1rem solid var(--bubble-sender-border);
+  border-bottom: 1rem solid var(--bubble-receiver-border);
   bottom: 0.125rem; /* 2px */
   left: -1.0625rem; /* -17px */
 }
 
 .Message__arrow--left::after {
-  border-bottom: 1rem solid var(--bubble-sender);
+  border-bottom: 1rem solid var(--bubble-receiver);
   bottom: 0.1875rem; /* 3px */
   left: -1rem;
 }
