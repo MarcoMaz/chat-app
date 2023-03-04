@@ -1,5 +1,10 @@
 .Main {
+  border-top: 1rem solid transparent;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
   display: flex;
   flex-direction: column;
+  max-height: 17rem;
+  overflow: scroll;
   padding: 0.5rem;
 }
