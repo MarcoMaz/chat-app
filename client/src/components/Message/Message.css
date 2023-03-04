@@ -1,5 +1,5 @@
 .Message {
-  border-radius: 15px;
+  border-radius: 1rem;
   color: var(--black);
   max-width: 9rem;
   margin-bottom: 0.5rem;
@@ -11,14 +11,14 @@
 
 .Message.Message--sender {
   background-color: var(--bubble-sender);
-  border: 1px solid var(--bubble-sender-border);
+  border: 0.0625rem solid var(--bubble-sender-border);
   left: 2rem;
 }
 
 .Message.Message--receiver {
   align-self: flex-end;  
   background-color: var(--bubble-receiver);
-  border: 1px solid var(--bubble-receiver-border);
+  border: 0.0625rem solid var(--bubble-receiver-border);
   right: 2rem;
 }
 
@@ -36,34 +36,34 @@
 
 .Message__arrow--right::before,
 .Message__arrow--right::after {
-  border-right: 24px solid transparent;
+  border-right: 1.5rem solid transparent;
 }
 
 .Message__arrow--right::before {
-  border-bottom: 16px solid var(--bubble-receiver-border);
-  bottom: 2px;
-  right: -17px;
+  border-bottom: 1rem solid var(--bubble-receiver-border);
+  bottom: 0.125rem; /* 2px */
+  right: -1.0625rem; /* -17px */
 }
 
 .Message__arrow--right::after {
-  border-bottom: 16px solid var(--bubble-receiver);
-  bottom: 3px;
-  right: -16px;
+  border-bottom: 1rem solid var(--bubble-receiver);
+  bottom: 0.1875rem; /* 3px */
+  right: -1rem;
 }
 
 .Message__arrow--left::before,
 .Message__arrow--left::after {
-  border-left: 24px solid transparent;
+  border-left: 1.5rem solid transparent;
 }
 
 .Message__arrow--left::before {
-  border-bottom: 16px solid var(--bubble-sender-border);
-  bottom: 2px;
-  left: -17px;
+  border-bottom: 1rem solid var(--bubble-sender-border);
+  bottom: 0.125rem; /* 2px */
+  left: -1.0625rem; /* -17px */
 }
 
 .Message__arrow--left::after {
-  border-bottom: 16px solid var(--bubble-sender);
-  bottom: 3px;
-  left: -16px;
+  border-bottom: 1rem solid var(--bubble-sender);
+  bottom: 0.1875rem; /* 3px */
+  left: -1rem;
 }
