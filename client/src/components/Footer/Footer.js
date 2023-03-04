@@ -97,7 +97,7 @@ const Footer = ({ socket, isUserTyping }) => {
 
   const handleChange = (e) => {
     setMessage(e.target.value);
-    if (e.target.value !== '') socket.emit('typing');
+    if (e.target.value !== '') socket.emit('typing', { userName: userName });
   };
 
   const handleKeyDown = (e) => {
@@ -108,7 +108,7 @@ const Footer = ({ socket, isUserTyping }) => {
 
   return (
     <footer className="Footer">
-      {isUserTyping && <Typing />}
+      {isUserTyping && <Typing userName={userName} />}
       <InputText value={message} onChange={handleChange} onKeyDown={handleKeyDown} />
       <SendButton handleMessage={handleMessage} isDisabled={message} />
     </footer>

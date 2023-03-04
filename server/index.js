@@ -31,8 +31,9 @@ socketIO.on("connection", (socket) => {
     socketIO.emit("removeLastMessageResponse");
   });
 
-  socket.on("typing", () => {
-    socketIO.emit("typingResponse");
+  socket.on("typing", (data) => {
+    console.log(data)
+    socketIO.emit("typingResponse", data);
   });
 });
 

@@ -1,11 +1,17 @@
+import PropTypes from 'prop-types';
+
 import './Typing.css';
 
-const Typing = () => {
+const Typing = ({ userName }) => {
   return (
     <div className="Footer__typing">
-      <em>is typing...</em>
+      <em>{userName} is typing...</em>
     </div>
   );
+};
+
+Typing.propTypes = {
+  userName: PropTypes.string.isRequired
 };
 
 export default Typing;
