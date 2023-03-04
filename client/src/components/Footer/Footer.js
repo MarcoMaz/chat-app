@@ -87,7 +87,7 @@ const Footer = ({ socket, setMessages }) => {
   };
 
   const handleThinkCommand = (textValue) => {
-    sendSocketMessage(socket, textValue, userName, '-highlight');
+    sendSocketMessage(socket, textValue, userName, '-thinking');
   };
 
   const handleOopsCommand = () => {
