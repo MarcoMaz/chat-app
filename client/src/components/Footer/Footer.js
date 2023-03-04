@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import './Footer.css';
 
+import Typing from '../Typing/Typing';
 import InputText from '../InputText/InputText';
 import SendButton from '../SendButton/SendButton';
 
@@ -95,6 +96,7 @@ const Footer = ({ socket }) => {
   };
 
   const handleChange = (e) => {
+    console.log('typing');
     setMessage(e.target.value);
   };
 
@@ -106,8 +108,9 @@ const Footer = ({ socket }) => {
 
   return (
     <footer className="Footer">
+      <Typing />
       <InputText value={message} onChange={handleChange} onKeyDown={handleKeyDown} />
-      <SendButton handleMessage={handleMessage} />
+      <SendButton handleMessage={handleMessage} isDisabled={message} />
     </footer>
   );
 };
