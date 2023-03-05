@@ -38,14 +38,13 @@ const Footer = ({ socket, isUserTyping }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName, additionalClassName) => {
-    socket.emit('message', {
-      text: message,
-      id: `${socket.id}${Math.random()}`,
-      socketID: socket.id,
-      userName: userName,
-      additionalClassName: additionalClassName
-    });
+  const handleChange = (e) => {
+    setMessage(e.target.value);
+    e.target.value !== '' ? handleTyping() : handleStopTyping();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') handleMessage(e);
   };
 
   const handleMessage = (e) => {
@@ -81,9 +80,9 @@ const Footer = ({ socket, isUserTyping }) => {
       } else if (message.trim() === '/oops') {
         handleOopsCommand();
       } else if (message.trim() === '(smile)') {
-        socket.emit('smile', { text: '😀', userName: userName });
+        handleSmileCommand();
       } else if (message.trim() === '(wink)') {
-        socket.emit('wink', { text: '😉', userName: userName });
+        handleWinkCommand();
       } else if (message.trim() === '/fadelast') {
         handleFadeLastCommand();
       } else {
@@ -91,7 +90,17 @@ const Footer = ({ socket, isUserTyping }) => {
       }
     }
     setMessage('');
-    socket.emit('stopTyping', { userName: userName });
+    handleStopTyping();
+  };
+
+  const sendSocketMessage = (socket, message, userName, additionalClassName) => {
+    socket.emit('message', {
+      text: message,
+      id: `${socket.id}${Math.random()}`,
+      socketID: socket.id,
+      userName: userName,
+      additionalClassName: additionalClassName
+    });
   };
 
   const handleNickCommand = (textValue) => {
@@ -108,14 +117,6 @@ const Footer = ({ socket, isUserTyping }) => {
     sendSocketMessage(socket, textValue, userName, '-highlight');
   };
 
-  const handleOopsCommand = () => {
-    socket.emit('removeLastMessage');
-  };
-
-  const handleFadeLastCommand = () => {
-    socket.emit('fadeLastMessage');
-  };
-
   const handleCountdownCommand = (textValue) => {
     const [countdown, url] = textValue.split(' ');
 
@@ -127,19 +128,28 @@ const Footer = ({ socket, isUserTyping }) => {
     });
   };
 
-  const handleChange = (e) => {
-    setMessage(e.target.value);
-    if (e.target.value !== '') {
-      socket.emit('typing', { userName: userName });
-    } else {
-      socket.emit('stopTyping', { userName: userName });
-    }
+  const handleOopsCommand = () => {
+    socket.emit('removeLastMessage');
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleMessage(e);
-    }
+  const handleSmileCommand = () => {
+    socket.emit('smile', { text: '😀', userName: userName });
+  };
+
+  const handleWinkCommand = () => {
+    socket.emit('wink', { text: '😉', userName: userName });
+  };
+
+  const handleFadeLastCommand = () => {
+    socket.emit('fadeLastMessage');
+  };
+
+  const handleTyping = () => {
+    socket.emit('typing', { userName: userName });
+  };
+
+  const handleStopTyping = () => {
+    socket.emit('stopTyping', { userName: userName });
   };
 
   return (
