@@ -3,32 +3,21 @@ import PropTypes from 'prop-types';
 import './Message.css';
 
 const Message = ({ text, className, isSender, additionalClassName }) => {
-  let isThinkingClassName = '';
-  let messageIsSenderClassName = '';
-  let messageArrowIsSenderClassName = '';
-  let fadeClass = '';
+  const classNames = [
+    'Message',
+    additionalClassName === '-highlight'
+      ? 'Message--highlight'
+      : additionalClassName === '-thinking'
+      ? 'Message--thinking'
+      : '',
+    isSender ? 'Message--sender' : 'Message--receiver',
+    className ? 'Message--fade-last' : ''
+  ];
 
-  if (additionalClassName === '-highlight') {
-    isThinkingClassName = 'Message--highlight';
-  } else if (additionalClassName === '-thinking') {
-    isThinkingClassName = 'Message--thinking';
-  } else {
-    isThinkingClassName = '';
-  }
-  if (isSender) {
-    messageIsSenderClassName = 'Message--sender';
-    messageArrowIsSenderClassName = 'Message__arrow--right';
-  } else {
-    messageIsSenderClassName = 'Message--receiver';
-    messageArrowIsSenderClassName = 'Message__arrow--left';
-  }
-
-  if (className) {
-    fadeClass = 'Message--fade-last';
-  }
+  const messageArrowIsSenderClassName = isSender ? 'Message__arrow--right' : 'Message__arrow--left';
 
   return (
-    <div className={`Message ${isThinkingClassName} ${messageIsSenderClassName} ${fadeClass}`}>
+    <div className={classNames.join(' ')}>
       {text}
       <div className={`Message__arrow ${messageArrowIsSenderClassName}`}></div>
     </div>
