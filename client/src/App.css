@@ -30,6 +30,8 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
+  max-height: 90vh;
   min-height: 20rem;
+  overflow: scroll;
   width: 20rem;  
 }
