@@ -11,6 +11,7 @@ import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Countdown from './components/Countdown/Countdown';
+import Modal from './components/Modal/Modal';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <Modal />
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
