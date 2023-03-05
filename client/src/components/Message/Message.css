@@ -95,9 +95,7 @@
   opacity: 0.1;
   transition: opacity 0.5s;
 }
-.Message.slide-up {
-  animation: slideUp 0.5s ease-out;
-}
+
 
 /* Define the animation */
 @keyframes slideIn {
@@ -111,19 +109,8 @@
   }
 }
 
-@keyframes slideUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-}
-
-
 /* Apply the animation to the message container */
 .Message {
   animation: slideIn 0.5s ease-out;
 }
+
