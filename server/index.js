@@ -18,7 +18,6 @@ socketIO.on("connection", (socket) => {
   console.log("Connected!!", socket.id);
 
   socket.on("message", (data) => {
-    console.log('message', data);
     socketIO.emit("messageResponse", data);
   });
 
@@ -51,8 +50,6 @@ socketIO.on("connection", (socket) => {
   });
 
   socket.on("countdownMessage", (data) => {
-    console.log('server', data)
-
     socketIO.emit("countdownMessageResponse", data);
   });
 });

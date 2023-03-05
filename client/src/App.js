@@ -35,11 +35,11 @@ function App() {
     });
 
     socket.on('countdownMessageResponse', (data) => {
-      console.log('data.url', data.url);
-
-      setCountdownActive(true);
-      setCountdownTime(data.countdown);
-      setRedirectUrl(data.url);
+      if (data.userName !== sessionStorage.getItem('userName')) {
+        setCountdownActive(true);
+        setCountdownTime(data.countdown);
+        setRedirectUrl(data.url);
+      }
     });
   }, [socket, setIsUserTyping]);
 

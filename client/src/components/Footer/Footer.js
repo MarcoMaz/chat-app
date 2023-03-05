@@ -85,7 +85,6 @@ const Footer = ({ socket, isUserTyping }) => {
       } else if (message.trim() === '(wink)') {
         socket.emit('wink', { text: '😉', userName: userName });
       } else if (message.trim() === '/fadelast') {
-        console.log('fadelast');
         handleFadeLastCommand();
       } else {
         sendSocketMessage(socket, message, userName);
@@ -120,9 +119,12 @@ const Footer = ({ socket, isUserTyping }) => {
   const handleCountdownCommand = (textValue) => {
     const [countdown, url] = textValue.split(' ');
 
-    console.log('countdown', countdown, 'url', url);
-
-    socket.emit('countdownMessage', { countdown: countdown, url: url });
+    socket.emit('countdownMessage', {
+      countdown: countdown,
+      url: url,
+      chatAppName: textValue,
+      userName: userName
+    });
   };
 
   const handleChange = (e) => {
