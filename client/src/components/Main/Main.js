@@ -12,7 +12,11 @@ const Main = ({ socket, messages, setMessages }) => {
       const updatedMessages = messages.slice(0, -1);
       setMessages(updatedMessages);
     });
-    socket.on('smile', (data) => {setMessages([...messages, data]}));
+    socket.on('smileResponse', (data) => {
+      console.log('SMILE', data);
+
+      setMessages([...messages, data.message]);
+    });
   }, [socket, messages]);
 
   console.log(messages);
