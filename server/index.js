@@ -45,6 +45,10 @@ socketIO.on("connection", (socket) => {
   socket.on("wink", (data) => {
     socketIO.emit("winkResponse", data);
   });
+
+  socket.on("fadeLastMessage", (data) => {
+    socketIO.emit("fadeLastMessageResponse", data);
+  });
 });
 
 app.get("/api", (req, res) => {

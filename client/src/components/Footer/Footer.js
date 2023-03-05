@@ -81,6 +81,9 @@ const Footer = ({ socket, isUserTyping }) => {
         socket.emit('smile', { text: '😀', userName: userName });
       } else if (message.trim() === '(wink)') {
         socket.emit('wink', { text: '😉', userName: userName });
+      } else if (message.trim() === '/fadelast') {
+        console.log('fadelast');
+        handleFadeLastCommand();
       } else {
         sendSocketMessage(socket, message, userName);
       }
@@ -105,6 +108,10 @@ const Footer = ({ socket, isUserTyping }) => {
 
   const handleOopsCommand = () => {
     socket.emit('removeLastMessage');
+  };
+
+  const handleFadeLastCommand = () => {
+    socket.emit('fadeLastMessage');
   };
 
   const handleChange = (e) => {
