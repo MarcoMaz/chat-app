@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+
 import './SendButton.css';
 
 const SendButton = ({ handleMessage, isDisabled }) => {
-  const sendButtonClassName = `${isDisabled !== '' ? 'Button -disabled' : 'Button'}`;
+  const sendButtonClassName = `${isDisabled !== '' ? 'Button' : 'Button -disabled'}`;
 
   return (
     <button type="button" className={sendButtonClassName} onClick={handleMessage}>
