@@ -75,9 +75,9 @@ const Footer = ({ socket, isUserTyping }) => {
       } else if (message.trim() === '/oops') {
         handleOopsCommand();
       } else if (message.trim() === '(smile)') {
-        socket.emit('smile', { text: '😀' });
+        socket.emit('smile', { text: '😀', userName: userName });
       } else if (message.trim() === '(wink)') {
-        socket.emit('wink', { text: '😉' });
+        socket.emit('wink', { text: '😉', userName: userName });
       } else {
         sendSocketMessage(socket, message, userName);
       }
