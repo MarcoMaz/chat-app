@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import './InputText.css';
 
 const InputText = ({ value, onChange, onKeyDown }) => {
