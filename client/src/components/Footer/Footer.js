@@ -122,7 +122,7 @@ const Footer = ({ socket, isUserTyping }) => {
 
     console.log('countdown', countdown, 'url', url);
 
-    socket.emit('countdownMessage');
+    socket.emit('countdownMessage', { countdown: countdown, url: url });
   };
 
   const handleChange = (e) => {

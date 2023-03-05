@@ -51,6 +51,8 @@ socketIO.on("connection", (socket) => {
   });
 
   socket.on("countdownMessage", (data) => {
+    console.log('server', data)
+
     socketIO.emit("countdownMessageResponse", data);
   });
 });
