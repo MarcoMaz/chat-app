@@ -38,7 +38,7 @@ function App() {
       console.log('data.url', data.url);
 
       setCountdownActive(true);
-      setCountdownTime(10);
+      setCountdownTime(data.countdown);
       setRedirectUrl(data.url);
     });
   }, [socket, setIsUserTyping]);
