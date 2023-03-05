@@ -129,7 +129,11 @@ const Footer = ({ socket, isUserTyping }) => {
 
   const handleChange = (e) => {
     setMessage(e.target.value);
-    if (e.target.value !== '') socket.emit('typing', { userName: userName });
+    if (e.target.value !== '') {
+      socket.emit('typing', { userName: userName });
+    } else {
+      socket.emit('stopTyping', { userName: userName });
+    }
   };
 
   const handleKeyDown = (e) => {
