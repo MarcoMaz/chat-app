@@ -10,11 +10,14 @@ const Main = ({ socket, messages, setMessages }) => {
   const [fadeLast, setFadeLast] = useState(false);
 
   useEffect(() => {
-    setMessages((prevMessages) => {
-      const lastIndex = prevMessages.length - 1;
-      const lastMessage = prevMessages[lastIndex];
+    socket.on('fadeLastMessageResponse', (data) => {
+      if (fadeLast) {
+        console.log('fadeLast', fadeLast, messages.length > 0);
+      }
     });
-  }, [fadeLast, messages]);
+  }, [socket, fadeLast, messages, setMessages]);
+
+  console.log('messages', messages);
 
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
