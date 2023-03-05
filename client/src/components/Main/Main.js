@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './Main.css';
@@ -35,16 +34,12 @@ const Main = ({ socket, messages, setMessages }) => {
   }, [socket, messages, setMessages]);
 
   useEffect(() => {
-    if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (lastMessageRef.current) lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   return (
     <main className="Main">
       {messages.map(({ text, className, userName, additionalClassName }, index) => {
-        const isLastMessage = index === messages.length - 1;
-
         return (
           <Message
             className={className}

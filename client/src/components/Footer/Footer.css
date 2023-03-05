@@ -1,6 +1,9 @@
 .Footer {
+  background: var(--chat-background-color);
+  bottom: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0.5rem;
+  position: sticky;
 }
