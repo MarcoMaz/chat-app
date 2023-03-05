@@ -69,8 +69,7 @@ const Footer = ({ socket, isUserTyping }) => {
               handleThinkCommand(textValue);
               break;
             case '/highlight':
-              console.log('highlight');
-              // handleHighlightCommand(textValue);
+              handleHighlightCommand(textValue);
               break;
             default:
               console.log('--> Unknown command');
@@ -100,9 +99,9 @@ const Footer = ({ socket, isUserTyping }) => {
     sendSocketMessage(socket, textValue, userName, '-thinking');
   };
 
-  // const handleHighlightCommand = (textValue) => {
-  //   sendSocketMessage(socket, textValue, userName, '-highlight');
-  // };
+  const handleHighlightCommand = (textValue) => {
+    sendSocketMessage(socket, textValue, userName, '-highlight');
+  };
 
   const handleOopsCommand = () => {
     socket.emit('removeLastMessage');

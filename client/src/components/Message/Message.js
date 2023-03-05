@@ -7,9 +7,9 @@ const Message = ({ text, isSender, isThinking }) => {
 
   return (
     <div
-      className={`Message ${isThinking ? 'Message--thinking' : ''} ${
-        isSender ? 'Message--sender' : 'Message--receiver'
-      }`}>
+      className={`Message ${isThinking === '-highlight' ? 'Message--highlight' : ''}${
+        isThinking === '-thinking' ? 'Message--thinking' : ''
+      } ${isSender ? 'Message--sender' : 'Message--receiver'}`}>
       {text}
       <div
         className={`Message__arrow ${
