@@ -38,13 +38,13 @@ const Footer = ({ socket, isUserTyping }) => {
     }
   };
 
-  const sendSocketMessage = (socket, message, userName, isThinking) => {
+  const sendSocketMessage = (socket, message, userName, additionalClassName) => {
     socket.emit('message', {
       text: message,
       id: `${socket.id}${Math.random()}`,
       socketID: socket.id,
       userName: userName,
-      isThinking: isThinking
+      additionalClassName: additionalClassName
     });
   };
 

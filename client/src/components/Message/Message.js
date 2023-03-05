@@ -2,15 +2,17 @@ import PropTypes from 'prop-types';
 
 import './Message.css';
 
-const Message = ({ text, isSender, isThinking }) => {
+const Message = ({ text, isSender, additionalClassName }) => {
   let isThinkingClassName = '';
   let messageIsSenderClassName = '';
   let messageArrowIsSenderClassName = '';
 
-  if (isThinking === '-highlight') {
+  if (additionalClassName === '-highlight') {
     isThinkingClassName = 'Message--highlight';
-  } else {
+  } else if (additionalClassName === '-thinking') {
     isThinkingClassName = 'Message--thinking';
+  } else {
+    isThinkingClassName = '';
   }
   if (isSender) {
     messageIsSenderClassName = 'Message--sender';
@@ -31,7 +33,7 @@ const Message = ({ text, isSender, isThinking }) => {
 Message.propTypes = {
   text: PropTypes.string.isRequired,
   isSender: PropTypes.bool.isRequired,
-  isThinking: PropTypes.string
+  additionalClassName: PropTypes.string
 };
 
 export default Message;

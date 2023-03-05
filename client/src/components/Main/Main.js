@@ -22,11 +22,11 @@ const Main = ({ socket, messages, setMessages }) => {
 
   return (
     <main className="Main">
-      {messages.map(({ text, userName, isThinking }, index) => (
+      {messages.map(({ text, userName, additionalClassName }, index) => (
         <Message
           key={index}
           text={text}
-          isThinking={isThinking}
+          additionalClassName={additionalClassName}
           isSender={userName === sessionStorage.getItem('userName')}
         />
       ))}
