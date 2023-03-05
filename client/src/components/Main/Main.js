@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './Main.css';
@@ -6,6 +7,15 @@ import './Main.css';
 import Message from '../Message/Message';
 
 const Main = ({ socket, messages, setMessages }) => {
+  const [fadeLast, setFadeLast] = useState(false);
+
+  useEffect(() => {
+    setMessages((prevMessages) => {
+      const lastIndex = prevMessages.length - 1;
+      const lastMessage = prevMessages[lastIndex];
+    });
+  }, [fadeLast, messages]);
+
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
     socket.on('removeLastMessageResponse', () => {
