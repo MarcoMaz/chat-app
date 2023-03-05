@@ -7,18 +7,6 @@ import './Main.css';
 import Message from '../Message/Message';
 
 const Main = ({ socket, messages, setMessages }) => {
-  const [fadeLast, setFadeLast] = useState(false);
-
-  useEffect(() => {
-    socket.on('fadeLastMessageResponse', (data) => {
-      if (fadeLast) {
-        console.log('fadeLast', fadeLast, messages.length > 0);
-      }
-    });
-  }, [socket, fadeLast, messages, setMessages]);
-
-  console.log('messages', messages);
-
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
     socket.on('removeLastMessageResponse', () => {
@@ -31,7 +19,16 @@ const Main = ({ socket, messages, setMessages }) => {
     socket.on('winkResponse', (data) => {
       setMessages([...messages, data]);
     });
-  }, [socket, messages]);
+    socket.on('fadeLastMessageResponse', (data) => {
+      const lastIndex = messages.length - 1;
+      const lastMessage = messages[lastIndex];
+      const newLastMessage = { ...lastMessage, className: 'fade-last' };
+
+      console.log('lastIndex', lastIndex.text, ' - lastMessage', lastMessage);
+    });
+  }, [socket, messages, setMessages]);
+
+  console.log('messages', messages);
 
   return (
     <main className="Main">
