@@ -49,8 +49,6 @@ const Footer = ({ socket, isUserTyping }) => {
   };
 
   const handleMessage = (e) => {
-    console.log('you hit the button');
-
     e.preventDefault();
     if (message.trim()) {
       const commandRegex = /\s?(\/nick|\/think)\s*(.*)/;
@@ -77,7 +75,9 @@ const Footer = ({ socket, isUserTyping }) => {
       } else if (message.trim() === '/oops') {
         handleOopsCommand();
       } else if (message.trim() === '(smile)') {
-        socket.emit('smile', { message: ':)' });
+        socket.emit('smile', { text: '😀' });
+      } else if (message.trim() === '(wink)') {
+        socket.emit('wink', { text: '😉' });
       } else {
         sendSocketMessage(socket, message, userName);
       }

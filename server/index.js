@@ -23,7 +23,6 @@ socketIO.on("connection", (socket) => {
   });
 
   socket.on("chatAppName", (data) => {
-    console.log('chatAppName', data)
     socketIO.emit("chatAppNameResponse", data);
   });
 
@@ -38,9 +37,13 @@ socketIO.on("connection", (socket) => {
   socket.on("stopTyping", (data) => {
     socketIO.emit("stopTypingResponse", data);
   });
+
   socket.on("smile", (data) => {
-    console.log(data)
     socketIO.emit("smileResponse", data);
+  });
+
+  socket.on("wink", (data) => {
+    socketIO.emit("winkResponse", data);
   });
 });
 

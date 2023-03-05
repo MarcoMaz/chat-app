@@ -13,13 +13,12 @@ const Main = ({ socket, messages, setMessages }) => {
       setMessages(updatedMessages);
     });
     socket.on('smileResponse', (data) => {
-      console.log('SMILE', data);
-
-      setMessages([...messages, data.message]);
+      setMessages([...messages, data]);
+    });
+    socket.on('winkResponse', (data) => {
+      setMessages([...messages, data]);
     });
   }, [socket, messages]);
-
-  console.log(messages);
 
   return (
     <main className="Main">
