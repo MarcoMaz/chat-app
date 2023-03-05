@@ -27,10 +27,6 @@
   color: var(--dark-gray)
 }
 
-.Message.Message--highlight {
-  font-size: calc((1rem / 100 * 10) + 1rem);
-}
-
 .Message__arrow--right::before,
 .Message__arrow--right::after,
 .Message__arrow--left::before,
@@ -71,4 +67,26 @@
   border-bottom: 1rem solid var(--bubble-receiver);
   bottom: 0.1875rem; /* 3px */
   left: -1rem;
+}
+
+
+/* Highlight Logic */
+.Message.Message--highlight {
+  font-size: calc((1rem / 100 * 10) + 1rem);
+}
+
+.Message.Message--highlight.Message--sender {
+  background-color: var(--bubble-sender-darker);
+}
+
+.Message.Message--highlight.Message--sender .Message__arrow--right::after {
+  border-bottom-color: var(--bubble-sender-darker);
+}
+
+.Message.Message--highlight.Message--receiver {
+  background-color: var(--bubble-receiver-darker);
+}
+
+.Message.Message--highlight.Message--receiver .Message__arrow--left::after {
+  border-bottom-color: var(--bubble-receiver-darker);
 }

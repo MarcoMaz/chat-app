@@ -7,8 +7,10 @@
   --dark-gray: #bebebe;
   --light-blue: lightblue;
   --bubble-sender: #C2E2AB;
+  --bubble-sender-darker: #B4D8A0;
   --bubble-sender-border: #6F8873;
   --bubble-receiver:#E0E0DF;
+  --bubble-receiver-darker:#CFCFCE;
   --bubble-receiver-border: #878A91;
 }
 

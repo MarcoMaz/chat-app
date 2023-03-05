@@ -5,9 +5,19 @@ import './Message.css';
 const Message = ({ text, isSender, isThinking }) => {
   console.log('CHECK', isThinking);
 
+  let highlightClassName = '';
+
+  if (isThinking === '-highlight') {
+    if (isSender) {
+      highlightClassName = 'Message--highlight Message--sender';
+    } else {
+      highlightClassName = 'Message--highlight Message--receiver';
+    }
+  }
+
   return (
     <div
-      className={`Message ${isThinking === '-highlight' ? 'Message--highlight' : ''}${
+      className={`Message ${highlightClassName}${
         isThinking === '-thinking' ? 'Message--thinking' : ''
       } ${isSender ? 'Message--sender' : 'Message--receiver'}`}>
       {text}
