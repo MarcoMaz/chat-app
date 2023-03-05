@@ -51,7 +51,7 @@ const Footer = ({ socket, isUserTyping }) => {
   const handleMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      const commandRegex = /\s?(\/nick|\/think)\s*(.*)/;
+      const commandRegex = /\s?(\/nick|\/think|\/highlight)\s*(.*)/;
       const match = message.match(commandRegex);
 
       if (match) {
@@ -67,6 +67,10 @@ const Footer = ({ socket, isUserTyping }) => {
               break;
             case '/think':
               handleThinkCommand(textValue);
+              break;
+            case '/highlight':
+              console.log('highlight');
+              // handleHighlightCommand(textValue);
               break;
             default:
               console.log('--> Unknown command');
@@ -95,6 +99,10 @@ const Footer = ({ socket, isUserTyping }) => {
   const handleThinkCommand = (textValue) => {
     sendSocketMessage(socket, textValue, userName, '-thinking');
   };
+
+  // const handleHighlightCommand = (textValue) => {
+  //   sendSocketMessage(socket, textValue, userName, '-highlight');
+  // };
 
   const handleOopsCommand = () => {
     socket.emit('removeLastMessage');

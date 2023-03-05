@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './Message.css';
 
 const Message = ({ text, isSender, isThinking }) => {
+  console.log('CHECK', isThinking);
+
   return (
     <div
       className={`Message ${isThinking ? 'Message--thinking' : ''} ${
