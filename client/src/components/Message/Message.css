@@ -1,4 +1,6 @@
+/* Message */
 .Message {
+  animation: slideIn 0.5s ease-out;
   border-radius: 1rem;
   color: var(--black);
   font-size: 1rem;
@@ -23,10 +25,7 @@
   left: 2rem;
 }
 
-.Message.Message--thinking {
-  color: var(--dark-gray)
-}
-
+/* Message's arrow Logic */
 .Message__arrow--right::before,
 .Message__arrow--right::after,
 .Message__arrow--left::before,
@@ -69,6 +68,10 @@
   left: -1rem;
 }
 
+/* Thinking Logic */
+.Message.Message--thinking {
+  color: var(--dark-gray)
+}
 
 /* Highlight Logic */
 .Message.Message--highlight {
@@ -91,12 +94,13 @@
   border-bottom-color: var(--bubble-receiver-darker);
 }
 
+/* Fading last message logic */
 .Message.Message--fade-last {
   opacity: 0.1;
   transition: opacity 0.5s;
 }
 
-/* Define the animation */
+/* Slide In Animation */
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -107,9 +111,3 @@
     transform: translateY(0);
   }
 }
-
-/* Apply the animation to the message container */
-.Message {
-  animation: slideIn 0.5s ease-out;
-}
-
