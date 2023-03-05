@@ -3,28 +3,27 @@ import PropTypes from 'prop-types';
 import './Message.css';
 
 const Message = ({ text, isSender, isThinking }) => {
-  console.log('CHECK', isThinking);
-
-  let highlightClassName = '';
+  let isThinkingClassName = '';
+  let messageIsSenderClassName = '';
+  let messageArrowIsSenderClassName = '';
 
   if (isThinking === '-highlight') {
-    if (isSender) {
-      highlightClassName = 'Message--highlight Message--sender';
-    } else {
-      highlightClassName = 'Message--highlight Message--receiver';
-    }
+    isThinkingClassName = 'Message--highlight';
+  } else {
+    isThinkingClassName = 'Message--thinking';
+  }
+  if (isSender) {
+    messageIsSenderClassName = 'Message--sender';
+    messageArrowIsSenderClassName = 'Message__arrow--right';
+  } else {
+    messageIsSenderClassName = 'Message--receiver';
+    messageArrowIsSenderClassName = 'Message__arrow--left';
   }
 
   return (
-    <div
-      className={`Message ${highlightClassName}${
-        isThinking === '-thinking' ? 'Message--thinking' : ''
-      } ${isSender ? 'Message--sender' : 'Message--receiver'}`}>
+    <div className={`Message ${isThinkingClassName} ${messageIsSenderClassName}`}>
       {text}
-      <div
-        className={`Message__arrow ${
-          isSender ? 'Message__arrow--right' : 'Message__arrow--left'
-        }`}></div>
+      <div className={`Message__arrow ${messageArrowIsSenderClassName}`}></div>
     </div>
   );
 };
