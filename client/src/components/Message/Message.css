@@ -91,7 +91,7 @@
   border-bottom-color: var(--bubble-receiver-darker);
 }
 
-.Message.fade-last {
+.Message.Message--fade-last {
   opacity: 0.1;
   transition: opacity 0.5s;
 }

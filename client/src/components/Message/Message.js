@@ -24,7 +24,7 @@ const Message = ({ text, className, isSender, additionalClassName }) => {
   }
 
   if (className) {
-    fadeClass = 'fade-last';
+    fadeClass = 'Message--fade-last';
   }
 
   return (

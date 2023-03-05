@@ -19,12 +19,15 @@ const Main = ({ socket, messages, setMessages }) => {
     socket.on('winkResponse', (data) => {
       setMessages([...messages, data]);
     });
-    socket.on('fadeLastMessageResponse', (data) => {
-      const lastIndex = messages.length - 1;
-      const lastMessage = messages[lastIndex];
-      const newLastMessage = { ...lastMessage, className: 'fade-last' };
+    socket.on('fadeLastMessageResponse', () => {
       setMessages((prevMessages) => {
-        return [...prevMessages.slice(0, lastIndex), newLastMessage];
+        const newMessages = prevMessages.map((message, index) => {
+          if (index === prevMessages.length - 1) {
+            return { ...message, className: 'Message--fade-last' };
+          }
+          return message;
+        });
+        return newMessages;
       });
     });
   }, [socket, messages, setMessages]);
