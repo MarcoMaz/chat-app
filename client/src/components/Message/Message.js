@@ -1,8 +1,27 @@
+import { useState, useEffect, useRef } from 'react';
+
 import PropTypes from 'prop-types';
 
 import './Message.css';
 
 const Message = ({ text, className, isSender, additionalClassName }) => {
+  const [isNewMessage, setIsNewMessage] = useState(false);
+  const messageRef = useRef(null);
+
+  useEffect(() => {
+    setIsNewMessage(true);
+  }, []);
+
+  useEffect(() => {
+    if (isNewMessage && messageRef.current) {
+      // Wait for the initial render to finish before animating
+      setTimeout(() => {
+        messageRef.current.classList.add('Message--slide-in');
+        setIsNewMessage(false);
+      }, 0);
+    }
+  }, [isNewMessage]);
+
   const classNames = [
     'Message',
     additionalClassName === '-highlight'
@@ -17,7 +36,7 @@ const Message = ({ text, className, isSender, additionalClassName }) => {
   const messageArrowIsSenderClassName = isSender ? 'Message__arrow--right' : 'Message__arrow--left';
 
   return (
-    <div className={classNames.join(' ')}>
+    <div className={classNames.join(' ')} ref={messageRef}>
       {text}
       <div className={`Message__arrow ${messageArrowIsSenderClassName}`}></div>
     </div>
