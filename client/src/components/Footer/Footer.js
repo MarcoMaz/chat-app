@@ -121,7 +121,7 @@ const Footer = ({ socket, isUserTyping }) => {
     const [countdown, url] = textValue.split(' ');
 
     socket.emit('countdownMessage', {
-      countdown: countdown,
+      countdown: Number(countdown),
       url: url,
       chatAppName: textValue,
       userName: userName

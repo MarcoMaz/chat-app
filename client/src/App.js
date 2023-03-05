@@ -18,7 +18,6 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [chatAppName, setChatAppName] = useState('');
   const [isUserTyping, setIsUserTyping] = useState(false);
-
   const [countdownTime, setCountdownTime] = useState(10);
   const [countdownActive, setCountdownActive] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState('');
