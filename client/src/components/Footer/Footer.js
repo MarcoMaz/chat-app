@@ -79,9 +79,9 @@ const Footer = ({ socket, isUserTyping }) => {
         }
       } else if (message.trim() === '/oops') {
         handleOopsCommand();
-      } else if (message.trim() === '(smile)') {
+      } else if (message.includes('(smile)')) {
         handleSmileCommand();
-      } else if (message.trim() === '(wink)') {
+      } else if (message.includes('(wink)')) {
         handleWinkCommand();
       } else if (message.trim() === '/fadelast') {
         handleFadeLastCommand();
@@ -133,11 +133,17 @@ const Footer = ({ socket, isUserTyping }) => {
   };
 
   const handleSmileCommand = () => {
-    socket.emit('smile', { text: '😀', userName: userName });
+    const smileRegex = /\(smile\)/g;
+    const textWithEmoji = message.replace(smileRegex, '😀');
+
+    socket.emit('smile', { text: textWithEmoji, userName: userName });
   };
 
   const handleWinkCommand = () => {
-    socket.emit('wink', { text: '😉', userName: userName });
+    const winkRegex = /\(wink\)/g;
+    const textWithEmoji = message.replace(winkRegex, '😉');
+
+    socket.emit('wink', { text: textWithEmoji, userName: userName });
   };
 
   const handleFadeLastCommand = () => {
