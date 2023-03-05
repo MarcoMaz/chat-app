@@ -14,6 +14,11 @@
   --bubble-receiver-border: #878A91;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {  
   align-items: center;
   display: flex;

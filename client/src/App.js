@@ -10,6 +10,7 @@ const socket = socketIO.connect(`http://localhost:${SERVER_PORT}`);
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import Countdown from './components/Countdown/Countdown';
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -35,6 +36,7 @@ function App() {
         <Main socket={socket} messages={messages} setMessages={setMessages} />
         <Footer socket={socket} isUserTyping={isUserTyping} setIsUserTyping={setIsUserTyping} />
       </div>
+      <Countdown />
     </div>
   );
 }
