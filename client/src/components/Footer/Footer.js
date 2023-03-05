@@ -51,7 +51,7 @@ const Footer = ({ socket, isUserTyping }) => {
   const handleMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      const commandRegex = /\s?(\/nick|\/think|\/highlight)\s*(.*)/;
+      const commandRegex = /\s?(\/nick|\/think|\/highlight|\/countdown)\s*(.*)/;
       const match = message.match(commandRegex);
 
       if (match) {
@@ -70,6 +70,9 @@ const Footer = ({ socket, isUserTyping }) => {
               break;
             case '/highlight':
               handleHighlightCommand(textValue);
+              break;
+            case '/countdown':
+              handleCountdownCommand(textValue);
               break;
             default:
               console.log('--> Unknown command');
@@ -112,6 +115,14 @@ const Footer = ({ socket, isUserTyping }) => {
 
   const handleFadeLastCommand = () => {
     socket.emit('fadeLastMessage');
+  };
+
+  const handleCountdownCommand = (textValue) => {
+    const [countdown, url] = textValue.split(' ');
+
+    console.log('countdown', countdown, 'url', url);
+
+    socket.emit('countdownMessage');
   };
 
   const handleChange = (e) => {

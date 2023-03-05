@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
@@ -18,6 +19,8 @@ function App() {
   const [chatAppName, setChatAppName] = useState('');
   const [isUserTyping, setIsUserTyping] = useState(false);
 
+  const [hasWarningAppeared, setHasWarningAppeared] = useState(false);
+
   useEffect(() => {
     socket.on('chatAppNameResponse', (data) => {
       if (data.userName !== sessionStorage.getItem('userName')) setChatAppName(data.chatAppName);
@@ -28,17 +31,21 @@ function App() {
     socket.on('stopTypingResponse', (data) => {
       if (data.userName !== sessionStorage.getItem('userName')) setIsUserTyping(false);
     });
+
+    socket.on('countdownMessageResponse', (data) => {
+      setHasWarningAppeared(true);
+    });
   }, [socket, setIsUserTyping]);
 
   return (
     <div className="App">
-      <Modal />
+      {hasWarningAppeared && <Modal />}
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
         <Footer socket={socket} isUserTyping={isUserTyping} setIsUserTyping={setIsUserTyping} />
       </div>
-      <Countdown />
+      {hasWarningAppeared && <Countdown />}
     </div>
   );
 }

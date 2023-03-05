@@ -49,6 +49,10 @@ socketIO.on("connection", (socket) => {
   socket.on("fadeLastMessage", (data) => {
     socketIO.emit("fadeLastMessageResponse", data);
   });
+
+  socket.on("countdownMessage", (data) => {
+    socketIO.emit("countdownMessageResponse", data);
+  });
 });
 
 app.get("/api", (req, res) => {
