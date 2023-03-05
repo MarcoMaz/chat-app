@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './Main.css';
@@ -7,6 +7,8 @@ import './Main.css';
 import Message from '../Message/Message';
 
 const Main = ({ socket, messages, setMessages }) => {
+  const lastMessageRef = useRef(null);
+
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
     socket.on('removeLastMessageResponse', () => {
@@ -32,17 +34,28 @@ const Main = ({ socket, messages, setMessages }) => {
     });
   }, [socket, messages, setMessages]);
 
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
   return (
     <main className="Main">
-      {messages.map(({ text, className, userName, additionalClassName }, index) => (
-        <Message
-          className={className}
-          key={index}
-          text={text}
-          additionalClassName={additionalClassName}
-          isSender={userName === sessionStorage.getItem('userName')}
-        />
-      ))}
+      {messages.map(({ text, className, userName, additionalClassName }, index) => {
+        const isLastMessage = index === messages.length - 1;
+
+        return (
+          <Message
+            className={className}
+            key={index}
+            text={text}
+            additionalClassName={additionalClassName}
+            isSender={userName === sessionStorage.getItem('userName')}
+          />
+        );
+      })}
+      <div ref={lastMessageRef} />
     </main>
   );
 };

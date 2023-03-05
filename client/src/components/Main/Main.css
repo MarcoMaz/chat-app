@@ -1,8 +1,16 @@
 .Main {
-  border-top: 1rem solid transparent;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  position: relative;
+}
+
+.Main::before {
+  background: var(--chat-background-color);
+  content: '';
+  height: 1rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9;
 }

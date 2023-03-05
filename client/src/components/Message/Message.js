@@ -16,13 +16,6 @@ const Message = ({ text, className, isSender, additionalClassName }) => {
       setTimeout(() => {
         messageRef.current.classList.add('Message--slide-in');
         setIsNewMessage(false);
-
-        // Add slide-up class to all previous message containers
-        let prevMessage = messageRef.current.previousSibling;
-        while (prevMessage) {
-          prevMessage.classList.add('Message--slide-up');
-          prevMessage = prevMessage.previousSibling;
-        }
       }, 0);
     }
   }, [isNewMessage]);
