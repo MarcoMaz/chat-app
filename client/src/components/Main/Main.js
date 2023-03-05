@@ -23,17 +23,17 @@ const Main = ({ socket, messages, setMessages }) => {
       const lastIndex = messages.length - 1;
       const lastMessage = messages[lastIndex];
       const newLastMessage = { ...lastMessage, className: 'fade-last' };
-
-      console.log('lastIndex', lastIndex.text, ' - lastMessage', lastMessage);
+      setMessages((prevMessages) => {
+        return [...prevMessages.slice(0, lastIndex), newLastMessage];
+      });
     });
   }, [socket, messages, setMessages]);
 
-  console.log('messages', messages);
-
   return (
     <main className="Main">
-      {messages.map(({ text, userName, additionalClassName }, index) => (
+      {messages.map(({ text, className, userName, additionalClassName }, index) => (
         <Message
+          className={className}
           key={index}
           text={text}
           additionalClassName={additionalClassName}

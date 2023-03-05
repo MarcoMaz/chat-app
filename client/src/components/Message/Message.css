@@ -90,3 +90,16 @@
 .Message.Message--highlight.Message--receiver .Message__arrow--left::after {
   border-bottom-color: var(--bubble-receiver-darker);
 }
+
+.Message.fademe {
+  animation: fademe 0.5s linear;
+}
+
+@keyframes fademe {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}

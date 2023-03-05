@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 
 import './Message.css';
 
-const Message = ({ text, isSender, additionalClassName }) => {
+const Message = ({ text, className, isSender, additionalClassName }) => {
   let isThinkingClassName = '';
   let messageIsSenderClassName = '';
   let messageArrowIsSenderClassName = '';
+  let fadeClass = '';
 
   if (additionalClassName === '-highlight') {
     isThinkingClassName = 'Message--highlight';
@@ -22,8 +23,12 @@ const Message = ({ text, isSender, additionalClassName }) => {
     messageArrowIsSenderClassName = 'Message__arrow--left';
   }
 
+  if (className) {
+    fadeClass = 'fademe';
+  }
+
   return (
-    <div className={`Message ${isThinkingClassName} ${messageIsSenderClassName}`}>
+    <div className={`Message ${isThinkingClassName} ${messageIsSenderClassName} ${fadeClass}`}>
       {text}
       <div className={`Message__arrow ${messageArrowIsSenderClassName}`}></div>
     </div>
@@ -32,6 +37,7 @@ const Message = ({ text, isSender, additionalClassName }) => {
 
 Message.propTypes = {
   text: PropTypes.string.isRequired,
+  className: PropTypes.string,
   isSender: PropTypes.bool.isRequired,
   additionalClassName: PropTypes.string
 };
