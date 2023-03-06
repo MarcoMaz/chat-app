@@ -1,7 +1,7 @@
 .Main {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: var(--padding-chat);
   position: relative;
 }
 

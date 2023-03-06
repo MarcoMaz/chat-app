@@ -17,7 +17,6 @@
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
-  right: 2rem;
 }
 
 .Message.Message--receiver {
@@ -25,7 +24,6 @@
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  left: 2rem;
 }
 
 /* Thinking Logic */
