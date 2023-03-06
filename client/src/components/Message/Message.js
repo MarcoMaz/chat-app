@@ -30,15 +30,9 @@ const Message = ({ text, className, isSender, additionalClassName }) => {
     className ? 'Message--fade-last' : ''
   ];
 
-  const arrowClassNames = [
-    'Message__arrow',
-    isSender ? 'Message__arrow--right' : 'Message__arrow--left'
-  ];
-
   return (
     <div className={messageClassNames.join(' ')} ref={messageRef}>
       {text}
-      <div className={arrowClassNames.join(' ')}></div>
     </div>
   );
 };

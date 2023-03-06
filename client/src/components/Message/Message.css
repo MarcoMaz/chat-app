@@ -1,7 +1,6 @@
 /* Message */
 .Message {
   animation: slideIn 0.5s ease-out;
-  border-radius: 1rem;
   color: var(--black);
   font-size: 1rem;
   max-width: 9rem;
@@ -14,63 +13,26 @@
 
 .Message.Message--sender {
   align-self: flex-end;  
-  background-color: var(--bubble-sender);
-  border: 0.0625rem solid var(--bubble-sender-border);
+  background-color: var(--color-mantis);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  color: var(--color-white);
   right: 2rem;
 }
 
 .Message.Message--receiver {
-  background-color: var(--bubble-receiver);
-  border: 0.0625rem solid var(--bubble-receiver-border);
+  background-color: var(--color-wild-sand);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  color: var(--color-black);
   left: 2rem;
-}
-
-/* Message's arrow Logic */
-.Message__arrow--right::before,
-.Message__arrow--right::after,
-.Message__arrow--left::before,
-.Message__arrow--left::after {
-  content: "";
-  position: absolute;
-}  
-
-.Message__arrow--right::before,
-.Message__arrow--right::after {
-  border-right: 1.5rem solid transparent;
-}
-
-.Message__arrow--right::before {
-  border-bottom: 1rem solid var(--bubble-sender-border);
-  bottom: 0.125rem; /* 2px */
-  right: -1.0625rem; /* -17px */
-}
-
-.Message__arrow--right::after {
-  border-bottom: 1rem solid var(--bubble-sender);
-  bottom: 0.1875rem; /* 3px */
-  right: -1rem;
-}
-
-.Message__arrow--left::before,
-.Message__arrow--left::after {
-  border-left: 1.5rem solid transparent;
-}
-
-.Message__arrow--left::before {
-  border-bottom: 1rem solid var(--bubble-receiver-border);
-  bottom: 0.125rem; /* 2px */
-  left: -1.0625rem; /* -17px */
-}
-
-.Message__arrow--left::after {
-  border-bottom: 1rem solid var(--bubble-receiver);
-  bottom: 0.1875rem; /* 3px */
-  left: -1rem;
 }
 
 /* Thinking Logic */
 .Message.Message--thinking {
-  color: var(--dark-gray)
+  color: var(--dark-gray) /* console.log */
 }
 
 /* Highlight Logic */
@@ -79,19 +41,11 @@
 }
 
 .Message.Message--highlight.Message--sender {
-  background-color: var(--bubble-sender-darker);
-}
-
-.Message.Message--highlight.Message--sender .Message__arrow--right::after {
-  border-bottom-color: var(--bubble-sender-darker);
+  background-color: var(--bubble-sender-darker); /* console.log */
 }
 
 .Message.Message--highlight.Message--receiver {
-  background-color: var(--bubble-receiver-darker);
-}
-
-.Message.Message--highlight.Message--receiver .Message__arrow--left::after {
-  border-bottom-color: var(--bubble-receiver-darker);
+  background-color: var(--bubble-receiver-darker); /* console.log */
 }
 
 /* Fading last message logic */
