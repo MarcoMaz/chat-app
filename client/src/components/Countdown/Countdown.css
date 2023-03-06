@@ -2,7 +2,7 @@
   align-items: center;
   background: var(--color-burnt-sienna);
   border-radius: 100%;
-  color: white;
+  color: var(--color-white);
   display: flex;  
   font-size: 4rem;
   font-weight: 400;
