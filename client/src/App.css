@@ -1,17 +1,13 @@
 :root {
-  --white: #ffffff;
-  --black: #000000;
-  --chat-background-color: #DBE1ED;
-  --chat-background-color-darken: #afb6c7;
-  --light-gray: #eeeeee;
-  --dark-gray: #bebebe;
-  --light-blue: lightblue;
-  --bubble-sender: #C2E2AB;
-  --bubble-sender-darker: #B4D8A0;
-  --bubble-sender-border: #6F8873;
-  --bubble-receiver:#E0E0DF;
-  --bubble-receiver-darker:#CFCFCE;
-  --bubble-receiver-border: #878A91;
+  --color-black: #000000;
+  --color-burnt-sienna: #EB5757;
+  --color-concrete: #F2F2F2;
+  --color-cornflower-blue: #DBE1ED;  
+  --color-gray: #828282;
+  --color-mantis: #65C466;
+  --color-medium-purple:#9B51E0;
+  --color-white: #ffffff;
+  --color-wild-sand: #F5F5F5;
 }
 
 body {
@@ -21,6 +17,7 @@ body {
 
 .App {  
   align-items: center;
+  background-color: var(--app-background-color);
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
