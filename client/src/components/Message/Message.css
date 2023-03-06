@@ -1,7 +1,7 @@
 /* Message */
 .Message {
   animation: slideIn 0.5s ease-out;
-  color: var(--black);
+  color: var(--color-black);
   font-size: 1rem;
   max-width: 9rem;
   margin-bottom: 0.5rem;
@@ -17,7 +17,6 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
-  color: var(--color-white);
   right: 2rem;
 }
 
@@ -26,13 +25,12 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  color: var(--color-black);
   left: 2rem;
 }
 
 /* Thinking Logic */
 .Message.Message--thinking {
-  color: var(--dark-gray) /* console.log */
+  color: var(--color-dark-gray);
 }
 
 /* Highlight Logic */
@@ -41,11 +39,11 @@
 }
 
 .Message.Message--highlight.Message--sender {
-  background-color: var(--bubble-sender-darker); /* console.log */
+  background-color: var(--color-mantis-darker);
 }
 
 .Message.Message--highlight.Message--receiver {
-  background-color: var(--bubble-receiver-darker); /* console.log */
+  background-color: var(--color-wild-sand-darker);
 }
 
 /* Fading last message logic */
