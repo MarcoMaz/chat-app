@@ -32,3 +32,8 @@ Once you have the application running, you can start chatting with another user.
 ## Chat UX
 - When the user is typing it is shown to the other user.
 - When a new message arrives, it slides in, and the messages above slides up.
+
+## Notes
+I did not add any webpack configurations due to time constraints, and I also refrained from modifying the `react eject` process for safety reasons.
+
+However, one approach I would have explored to improve the application's performance is to use a tool like [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) together with a custom Webpack config.
