@@ -6,7 +6,7 @@
 }
 
 .Main::before {
-  background: var(--chat-background-color);
+  background: var(--color-white);
   content: '';
   height: 1rem;
   position: sticky;
