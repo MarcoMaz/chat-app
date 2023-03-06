@@ -1,8 +1,13 @@
 .InputText {
-  background-color: var(--light-gray);
+  background-color: var(--color-concrete);
   border: 0;
   border-radius: 1.5rem;
+  color: var(--color-black);
   flex: 2;
   margin-right: 0.5rem;
   padding: 0.5rem;
+}
+
+.InputText::placeholder {
+  color: var(--color-gray)
 }
