@@ -30,6 +30,11 @@ const Footer = ({ socket, isUserTyping, chatAppName }) => {
     };
   }, []);
 
+  const capitalizeFirstLetter = (str) => {
+    if (!str) return str;
+    return str[0].toUpperCase() + str.slice(1);
+  };
+
   const handleStorageEvent = (event) => {
     if (event.key === 'userName' && !event.newValue) {
       const newUserName = `User ${Math.floor(Math.random() * 10000)}`;
@@ -104,9 +109,10 @@ const Footer = ({ socket, isUserTyping, chatAppName }) => {
   };
 
   const handleNickCommand = (textValue) => {
-    setChatHeaderAppName(textValue);
+    const textValueLocal = capitalizeFirstLetter(textValue);
+    setChatHeaderAppName(textValueLocal);
     sessionStorage.setItem('chatAppName', chatHeaderAppName);
-    socket.emit('chatAppName', { chatAppName: textValue, userName: userName });
+    socket.emit('chatAppName', { chatAppName: textValueLocal, userName: userName });
   };
 
   const handleThinkCommand = (textValue) => {
@@ -160,7 +166,9 @@ const Footer = ({ socket, isUserTyping, chatAppName }) => {
 
   return (
     <footer className="Footer">
-      {isUserTyping && <Typing userName={userName} chatAppName={chatAppName} />}
+      {isUserTyping && (
+        <Typing userName={userName} chatAppName={capitalizeFirstLetter(chatAppName)} />
+      )}
       <InputText value={message} onChange={handleChange} onKeyDown={handleKeyDown} />
       <SendButton handleMessage={handleMessage} isDisabled={message} />
     </footer>
