@@ -1,17 +1,17 @@
 .Countdown {
   align-items: center;
-  background: red;
-  border-radius: 1.5rem;
+  background: var(--color-burnt-sienna);
+  border-radius: 100%;
   color: white;
   display: flex;  
   font-size: 4rem;
   font-weight: 400;
-  height: 12rem;
-  left: calc(50% - 15rem);
+  height: 11rem;
+  left: calc(50% - 5.5rem);
   justify-content: center;
   position: absolute;
   text-align: center;
-  top: calc(50% - 6rem);
-  width: 30rem;
+  top: calc(50% - 5.5rem);
+  width: 11rem;
   z-index: 1000;
 }

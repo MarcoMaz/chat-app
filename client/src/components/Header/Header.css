@@ -1,8 +1,8 @@
 .Header {
-  background-color: var(--chat-background-color-darken);
-  border-bottom: 0.125rem solid var(--light-gray);
+  background-color: var(--color-medium-purple);
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
+  color: var(--color-white);
   font-weight: bold;
   margin-bottom: 2rem;
   padding: 1rem;
