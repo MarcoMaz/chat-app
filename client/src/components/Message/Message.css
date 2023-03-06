@@ -1,8 +1,7 @@
 /* Message */
 .Message {
   animation: slideIn 0.5s ease-out;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+  border-radius: var(--border-radius);
   color: var(--color-black);
   font-size: 1rem;
   max-width: 9rem;
@@ -16,12 +15,59 @@
 .Message.Message--sender {
   align-self: flex-end;  
   background-color: var(--color-mantis);
-  border-bottom-left-radius: var(--border-radius);
+  left: -6px;
 }
 
 .Message.Message--receiver {
   background-color: var(--color-wild-sand);
+  left: 6px;
+}
+
+/* Tail Logic */
+.Message.Message--sender:before,
+.Message.Message--sender:after {
+  border-bottom-left-radius: var(--border-radius);
+  bottom: 0;
+  content: "";
+  height: 20px;
+  position: absolute;
+}
+
+.Message.Message--sender:before {
+  background: var(--color-mantis);
+  right: -8px;
+  width: 20px;
+  z-index: 0;
+}
+
+.Message.Message--sender:after {
+  background: var(--color-white);
+  right: -10px;
+  width: 10px;
+  z-index: 1;
+}
+
+.Message.Message--receiver:before,
+.Message.Message--receiver:after {
   border-bottom-right-radius: var(--border-radius);
+  bottom: 0;
+  content: "";
+  height: 20px;
+  position: absolute;
+}
+
+.Message.Message--receiver:before {
+  background: var(--color-wild-sand);
+  left: -8px;
+  width: 20px;
+  z-index: 0;
+}
+
+.Message.Message--receiver:after {
+  background: var(--color-white);
+  left: -10px;
+  width: 10px;
+  z-index: 1;
 }
 
 /* Thinking Logic */
@@ -34,11 +80,13 @@
   font-size: calc((1rem / 100 * 10) + 1rem);
 }
 
-.Message.Message--highlight.Message--sender {
+.Message.Message--highlight.Message--sender,
+.Message.Message--highlight.Message--sender:before {
   background-color: var(--color-mantis-darker);
 }
 
-.Message.Message--highlight.Message--receiver {
+.Message.Message--highlight.Message--receiver,
+.Message.Message--highlight.Message--receiver:before {
   background-color: var(--color-wild-sand-darker);
 }
 
