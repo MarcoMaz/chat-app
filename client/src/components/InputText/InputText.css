@@ -4,8 +4,9 @@
   border-radius: var(--border-radius);
   color: var(--color-black);
   flex: 2;
-  margin-right: 0.5rem;
-  padding: 0.5rem;
+  height: 1.5rem;
+  margin-right: 0.75rem;
+  padding: 0.5rem 1rem;
 }
 
 .InputText::placeholder {
