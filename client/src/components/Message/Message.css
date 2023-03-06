@@ -14,17 +14,17 @@
 .Message.Message--sender {
   align-self: flex-end;  
   background-color: var(--color-mantis);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
   right: 2rem;
 }
 
 .Message.Message--receiver {
   background-color: var(--color-wild-sand);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
   left: 2rem;
 }
 

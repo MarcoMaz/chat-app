@@ -1,7 +1,7 @@
 .Button {
   border: 0;
   background-color: var(--color-medium-purple);
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius);
   color: var(--color-white);
   padding: 0.5rem;
 }
