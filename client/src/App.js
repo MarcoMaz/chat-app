@@ -63,7 +63,12 @@ function App() {
       <div className="Chat">
         {chatAppName && <Header chatAppName={chatAppName} />}
         <Main socket={socket} messages={messages} setMessages={setMessages} />
-        <Footer socket={socket} isUserTyping={isUserTyping} setIsUserTyping={setIsUserTyping} />
+        <Footer
+          socket={socket}
+          isUserTyping={isUserTyping}
+          setIsUserTyping={setIsUserTyping}
+          chatAppName={chatAppName}
+        />
       </div>
       {countdownActive && <Countdown countdownTime={countdownTime} />}
     </div>
