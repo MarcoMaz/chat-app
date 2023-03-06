@@ -19,8 +19,16 @@ Clone the repository: `git clone https://github.com/your-username/chat-app.git`
 ## Usage
 Once you have the application running, you can start chatting with another user. The chat window will be displayed in the browser.
 
-To set your name for the chat, type /nick <name> in the input field and press Enter. Your name will be displayed at the top of the chat window on the other person's browser.
+## Chat commands
+- /nick <name> - sets your name for the chat and it will appear at the top of the chat window on the other​ person's browser.
+- /think <message> - makes the text appear in dark grey, instead of black.
+- /oops - removes the last message sent.
+- /fadelast - fades out the last message to 10% visibility.
+- /highlight <message> - makes the font of the message 10% bigger, and the background 10% darker.
+- /countdown <number> <url> - starts a visible countdown on the other persons browser, and at the end of the countdown redirect them to the URL specified.
+- (smile) - produces a smiley face.
+- (wink) - produces a winking face
 
-To make your message appear in dark grey, instead of black, type /think <message> in the input field and press Enter.
-
-To remove the last message sent, type /oops in the input field and press Enter.
+## Chat UX
+- When the user is typing it is shown to the other user.
+- When a new message arrives, it slides in, and the messages above slides up.
